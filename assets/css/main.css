@@ -11,7 +11,7 @@
 
 body {
   @apply text-black font-beatrice;
-  background: url("@/assets/media/bg.png") no-repeat;
+  background: url("@/assets/media/bg.webp") no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }

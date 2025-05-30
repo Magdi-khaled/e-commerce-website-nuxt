@@ -19,7 +19,7 @@ export default defineNuxtConfig({
         {
           rel: "icon",
           type: "image/x-icon",
-          href: "/icon.png",
+          href: "/icon.webp",
         },
         {
           rel: "stylesheet",

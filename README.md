@@ -6,7 +6,7 @@
 A modern, high-performance e-commerce website built with [Nuxt 3](https://nuxt.com/), featuring a stylish homepage, dynamic product collections, detailed product pages, shopping cart, wishlist, user account management, and a seamless checkout experience.
 
 <p align="center">
-  <img src="./public/readme.png" alt="Nuxt 3 E-Commerce Screenshot" width="85%" />
+  <img src="./public/readme.webp" alt="Nuxt 3 E-Commerce Screenshot" width="85%" />
 </p>
 
 ## 🚀 Features
