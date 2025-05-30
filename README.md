@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# e-commerce-website-nuxt
-=======
 # 🛍️ Nuxt 3 E-Commerce Website
 
 A modern, high-performance e-commerce website built with [Nuxt 3](https://nuxt.com/), featuring a stylish homepage, dynamic product collections, detailed product pages, shopping cart, wishlist, user account management, and a seamless checkout experience.
@@ -66,4 +63,3 @@ Visit http://localhost:3000 to view the application.
 ## 📄 License
 
 This project is licensed under the [MIT License](./LICENSE) – © 2025 Magdi Khaled Kelany
->>>>>>> 4b4145f (chore: initial commit with full code setup)
