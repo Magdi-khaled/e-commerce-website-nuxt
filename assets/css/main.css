@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@import "./base.css";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-primary: var(--primary);
+  --color-hover: var(--hover);
+  --color-fade: var(--fade);
+  --font-beatrice: "Beatrice Display Trial", sans-serif;
+}
+
+body {
+  @apply text-black font-beatrice;
+  background: url("@/assets/media/bg.png") no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}

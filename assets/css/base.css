@@ -1,0 +1,12 @@
+:root {
+  --background: #d9d9d9;
+  --primary: #1e1e1e;
+  --hover: #1e1e1e7d;
+  --fade: #1e1e1ec1;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
