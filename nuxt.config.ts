@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: "e-commerce website",
+      title: "E-commerce | VR XIV QR",
       link: [
         {
           rel: "icon",

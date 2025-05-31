@@ -6,11 +6,11 @@
   --color-primary: var(--primary);
   --color-hover: var(--hover);
   --color-fade: var(--fade);
-  --font-beatrice: "Beatrice Display Trial", sans-serif;
+  --font-beatrice: "Beatrice Deck Trial", sans-serif;
 }
 
 body {
-  @apply text-black font-beatrice;
+  @apply text-black tracking-wide font-beatrice;
   background: url("@/assets/media/bg.webp") no-repeat;
   background-size: cover;
   background-attachment: fixed;
