@@ -10,7 +10,7 @@
 }
 
 body {
-  @apply text-black tracking-wide font-beatrice;
+  @apply text-black tracking-wider font-beatrice;
   background: url("@/assets/media/bg.webp") no-repeat;
   background-size: cover;
   background-attachment: fixed;

@@ -8,7 +8,7 @@ const focused = ref(false);
 </script>
 
 <template>
-    <div class="grid gap-4">
+    <div class="grid gap-4 mb-20">
         <div>
             <nuxt-link :to="item.path" v-for="(item, index) in items" :key="index"
                 class="block w-fit uppercase tracking-widest text-fade cursor-pointer hover:underline hover:underline-offset-2 transition duration-300">
