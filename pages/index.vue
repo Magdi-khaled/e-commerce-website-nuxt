@@ -116,7 +116,7 @@ const showLess = () => {
             </div>
         </div>
         <!-- xiv collection 24-25 -->
-        <div class="mb-28 px-5 md:px-12">
+        <div class="px-5 md:px-12">
             <div>
                 <h1 class=" relative uppercase font-bold lg:text-5xl text-4xl">
                     xiv <br>
@@ -137,6 +137,22 @@ const showLess = () => {
                 <Icon name="iconamoon:arrow-up-2-bold" class="text-2xl" />
                 <p>Show Less</p>
             </HomeShowButton>
+        </div>
+        <div class="md:my-28 my-20">
+            <div class="px-5 md:px-12 flex flex-col items-center">
+                <h1 class="md:text-4xl text-2xl uppercase tracking-wider text-center">Our Approach to fashion design
+                </h1>
+                <p class="my-2 text-center text-neutral-600 md:w-7/12 sm:w-8/12 w-full sm:text-[15px] text-xs">
+                    at elegant vogue , we blend creativity with craftsmanship to create fashion that transcends trends
+                    and stands the test of time each design is meticulously crafted, ensuring the highest quelity
+                    exqulsite finish
+                </p>
+            </div>
+            <div class="pl-5 md:pl-12 grid sm:grid-cols-4 grid-cols-2 lg:gap-x-6 gap-x-2 overflow-hidden">
+                <img v-for="(item, index) in fashion" :key="index" :src="item" :alt="`Fashion Style (${index + 1})`"
+                    class="m-auto lg:w-[28rem] md:w-[18rem] w-11/12 even:w-full lg:h-[25rem] md:h-[18rem] h-[13rem]  border-[1px]
+                    border-background object-cover even:sm:mt-32 even:mt-16 odd:sm:mt-12 odd:mt-6 hover:scale-[100.5%] hover:shadow-2xl transition duration-300">
+            </div>
         </div>
     </main>
 </template>

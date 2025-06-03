@@ -166,3 +166,10 @@ export const xivCollection = [
     price: 99,
   },
 ];
+
+export const fashion = [
+  "/collection/fashion/pic-1.webp",
+  "/collection/fashion/pic-2.webp",
+  "/collection/product1.webp",
+  "/collection/fashion/pic-4.webp",
+];
