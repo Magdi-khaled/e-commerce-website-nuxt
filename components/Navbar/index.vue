@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const items = [
     { title: 'Home', path: '/' },
-    { title: 'Collections', path: '/' },
+    { title: 'Collections', path: '/collections' },
     { title: 'New', path: '/' }
 ];
 const open = ref(false);

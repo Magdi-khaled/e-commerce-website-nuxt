@@ -67,31 +67,31 @@ export const newThisWeek = [
     title: "Embroidered Seersucker Shirt",
     type: "V-Neck T-Shirt",
     thumbnail: "/collection/week/product1.webp",
-    price: 99,
+    price: 199,
   },
   {
     title: "Basic Slim Fit T-Shirt",
     type: "Cotton T Shirt",
     thumbnail: "/collection/week/product2.webp",
-    price: 99,
+    price: 199,
   },
   {
     title: "Blurred Print T-Shirt",
     type: "Henley T-Shirt",
     thumbnail: "/collection/week/product3.webp",
-    price: 99,
+    price: 199,
   },
   {
     title: "Full Sleeve Zipper",
     type: "Crewneck T-Shirt",
     thumbnail: "/collection/week/product4.webp",
-    price: 99,
+    price: 199,
   },
   {
     title: "Embroidered Seersucker Shirt",
     type: "V-Neck T-Shirt",
     thumbnail: "/collection/week/product1.webp",
-    price: 99,
+    price: 199,
   },
 ];
 export const breakPointsWeek = {
@@ -118,55 +118,62 @@ export const breakPointsWeek = {
 };
 export const xivCollection = [
   {
+    id: 1,
     title: "Basic Heavy Weight T-shirt",
     type: "Cotton T Shirt",
     thumbnail: "/collection/product9.webp",
-    price: 99,
+    price: 199,
   },
   {
+    id: 2,
     title: "Embroidered Seersucker Shirt",
     type: "V-Neck T-Shirt",
     thumbnail: "/collection/product8.webp",
-    price: 99,
+    price: 199,
   },
   {
+    id: 3,
     title: "Basic Heavy Weight T-shirt",
     type: "Henley T-Shirt",
     thumbnail: "/collection/product7.webp",
-    price: 99,
+    price: 199,
   },
   {
+    id: 4,
     title: "Full Sleeve Zipper",
     type: "Crewneck T-Shirt",
     thumbnail: "/collection/product6.webp",
-    price: 99,
+    price: 199,
   },
   {
+    id: 5,
     title: "Embroidered Seersucker Shirt",
     type: "V-Neck T-Shirt",
     thumbnail: "/collection/product5.webp",
-    price: 99,
+    price: 199,
   },
   {
+    id: 6,
     title: "Embroidered Seersucker Shirt",
     type: "V-Neck T-Shirt",
     thumbnail: "/collection/product4.webp",
-    price: 99,
+    price: 199,
   },
   {
+    id: 7,
     title: "Embroidered Seersucker Shirt",
     type: "V-Neck T-Shirt",
     thumbnail: "/collection/product3.webp",
-    price: 99,
+    price: 199,
   },
   {
+    id: 8,
     title: "Embroidered Seersucker Shirt",
     type: "V-Neck T-Shirt",
     thumbnail: "/collection/product2.webp",
-    price: 99,
+    price: 199,
   },
 ];
-
 export const fashion = [
   "/collection/fashion/pic-1.webp",
   "/collection/fashion/pic-2.webp",

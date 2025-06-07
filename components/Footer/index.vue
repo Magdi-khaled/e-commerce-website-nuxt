@@ -9,7 +9,7 @@ const links = [
         { title: 'payments', path: '/' }]
     }, {
         title: 'help',
-        items: [{ title: 'custom support', path: '/' }, { title: 'delivery details', path: '/' }, { title: 'terms & conditions', path: '/' },
+        items: [{ title: 'customer support', path: '/' }, { title: 'delivery details', path: '/' }, { title: 'terms & conditions', path: '/' },
         { title: 'privacy policy', path: '/' }]
     }, {
         title: 'Languages',

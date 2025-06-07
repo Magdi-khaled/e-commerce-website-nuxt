@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const router = useRouter();
 const collections = ['all', 'men', 'women', 'kids'];
 const currentCollection = ref(0);
 // --- Swiper 1 (New Collection) ---
@@ -75,7 +76,7 @@ const showLess = () => {
                         :prev="'collection-prev'" />
                 </div>
                 <div class="flex items-center gap-6">
-                    <Button class="md:w-full w-7/12 whitespace-nowrap ">
+                    <Button @click="router.push({ name: 'collections' })" class="md:w-full w-7/12 whitespace-nowrap ">
                         go to shop
                         <Icon name="mynaui:arrow-long-right" size="28" />
                     </Button>
@@ -126,7 +127,8 @@ const showLess = () => {
             </div>
             <HomeCollectionHeader :collections="collections" v-model:current-collection="currentCollection" />
             <div class="my-4 grid sm:grid-cols-3 grid-cols-2 sm:gap-12 gap-6">
-                <HomeProduct v-for="(item, index) in displayedCollection" :key="index" :index="index" :item="item" />
+                <CollectionProduct v-for="(item, index) in displayedCollection" :key="index" :index="index"
+                    :item="item" />
             </div>
             <HomeShowButton v-if="xivCollection.length > displayedCount" :show-function="showMore"
                 :is-option="isShowMore">
@@ -138,6 +140,7 @@ const showLess = () => {
                 <p>Show Less</p>
             </HomeShowButton>
         </div>
+        <!-- fashion -->
         <div class="md:my-28 my-20">
             <div class="px-5 md:px-12 flex flex-col items-center">
                 <h1 class="md:text-4xl text-2xl uppercase tracking-wider text-center">Our Approach to fashion design

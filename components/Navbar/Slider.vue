@@ -3,7 +3,7 @@ const open = defineModel<boolean>('open');
 
 const items = [
     { title: 'Home', path: '/' },
-    { title: 'Collections', path: '/' },
+    { title: 'Collections', path: '/collections' },
     { title: 'New', path: '/' },
     { title: 'About', path: '/' },
     { title: 'Support', path: '/' },
@@ -19,8 +19,7 @@ const items = [
                     <Logo />
                     <p>VR XIV QR</p>
                 </div>
-                <button @click="open = false"
-                    class="flex cursor-pointer hover:text-hover transition">
+                <button @click="open = false" class="flex cursor-pointer hover:text-hover transition">
                     <Icon name="heroicons:x-mark-16-solid" size="25" />
                 </button>
             </div>

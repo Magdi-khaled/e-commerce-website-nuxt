@@ -8,7 +8,6 @@
   --color-fade: var(--fade);
   --font-beatrice: "Beatrice Deck Trial", sans-serif;
 }
-
 body {
   @apply text-black tracking-wider font-beatrice;
   background: url("@/assets/media/bg.webp") no-repeat;
