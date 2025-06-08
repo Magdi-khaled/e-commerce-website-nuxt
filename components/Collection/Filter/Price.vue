@@ -27,7 +27,7 @@ const percentage = computed(() => ((price.value - min) / (max - min)) * 100);
                 [&::-moz-range-thumb]:bg-fade
                 [&::-moz-range-thumb]:shadow" />
 
-            <div class="absolute bottom-[-6] lg:text-sm text-xs font-medium text-fade transition-all duration-75"
+            <div class="absolute bottom-[-45%] lg:text-sm text-xs font-medium text-fade transition-all duration-75"
                 :style="{ left: `calc(${percentage}% - 1.4rem)` }">
                 ${{ price }}
             </div>
