@@ -14,14 +14,14 @@ const route = useRoute();
                     'lg:h-[28rem] md:h-[16rem] sm:h-[13rem] h-[11rem]': route.name === 'index',
                     'lg:h-[20rem] md:h-[14rem] sm:h-[13rem] h-[12rem]': route.name === 'collections'
                 }">
-            <button title="Add to Cart" 
+            <button title="Add to Cart"
                 class="cursor-pointer absolute bottom-0 left-[45%] sm:text-xl text-sm text-fade p-1 rounded-t-md flex bg-background hover:text-neutral-50 hover:bg-fade transition duration-300">
                 <Icon name="line-md:plus" />
             </button>
         </div>
-        <div class="md:text-[14px] text-xs my-2 tracking-wide font-semibold">
+        <div class="md:text-[14px] text-xs my-2 tracking-wide font-semibold capitalize">
             <h1 class="text-neutral-500">{{ item.type }}</h1>
-            <div class="mt-1 flex justify-between capitalize">
+            <div class="mt-1 flex justify-between">
                 <h2>{{ item.title }}</h2>
                 <p>${{ item.price }}</p>
             </div>

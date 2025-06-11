@@ -4,14 +4,14 @@ import { Grid, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/grid';
 import 'swiper/css/navigation';
-
 const modules = [Grid, Navigation];
+
 const openFilter = defineModel<boolean>('openFilter');
+const typeFilter = defineModel<string>('typeFilter');
 
 const focused = ref(false);
-const collections = ['new', 'shirts', 'polo shirts', 'shorts', 'suits',
-    'best sellers', 't-shirts', 'jeans', 'jackets', 'coats'];
-const currentCollection = ref(0);
+const collections = ['all', 't-shirt', 'shirt', 'trouser', 'short', 'suit',
+    'sweat-shirt', 'hoodie', 'sport', 'jacket', 'dress', 'coat'];
 </script>
 
 <template>
@@ -61,12 +61,13 @@ const currentCollection = ref(0);
         }
     }" class="lg:col-span-3 col-span-5 w-[100%]">
         <SwiperSlide v-for="(item, index) in collections" :key="index">
-            <p @click="currentCollection = index" :class="{
-                'text-fade border-[2px] border-neutral-500 font-bold': currentCollection === index,
-                'text-hover border border-hover': currentCollection !== index
-            }" class="mb-1 sm:w-[8rem] w-[6.8rem] sm:py-[6px] py-[4px] text-center font-medium whitespace-nowrap uppercase sm:text-xs text-[11px] cursor-pointer hover:text-fade 
-                                hover:border-fade">
-                {{ item }}
+            <p @click="typeFilter = item" :class="{
+                'text-fade border-[2px] border-neutral-500 font-bold': typeFilter === item,
+                'text-hover border border-hover': typeFilter !== item
+            }"
+                class="mb-1 sm:w-[8rem] w-[6.8rem] sm:py-[6px] py-[4px] text-center font-medium whitespace-nowrap uppercase sm:text-xs text-[11px] cursor-pointer hover:text-fade hover:border-fade">
+                {{ item }}<span v-if="item !== 'all' && item !== 'dress'">s</span>
+                <span v-if="item === 'dress'">es</span>
             </p>
         </SwiperSlide>
     </Swiper>

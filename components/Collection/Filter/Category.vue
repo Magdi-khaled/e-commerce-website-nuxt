@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const category = defineModel<string>('category');
-
+const categoryFilter = defineModel<string>('categoryFilter');
+const props = defineProps<{ type: string }>();
 const isOpen = ref(true);
 const categories = [
     { type: 'men', quantity: 265 },
@@ -12,12 +12,13 @@ const categories = [
 <template>
     <CollectionFilterBase category="category" v-model:is-open="isOpen">
         <label v-for="(item, index) in categories" :key="index" :for="`category-${index}`"
-            class="w-fit relative font-medium cursor-pointer capitalize flex items-center gap-2 lg:text-[15px] text-sm">
-            <input type="radio" name="category" :id="`category-${index}`" :value="item.type" v-model="category"
+            class="w-fit relative font-medium cursor-pointer capitalize flex items-center gap-2 lg:text-[15px] text-sm"
+            :class="{ 'opacity-50 pointer-events-none': props.type === 'dress' && item.type === 'men' }">
+            <input type="radio" name="category" :id="`category-${index}`" :value="item.type" v-model="categoryFilter"
                 class="appearance-none cursor-pointer size-5 border border-neutral-500"
-                :class="{ 'bg-fade': category === item.type }">
+                :class="{ 'bg-fade': categoryFilter === item.type }">
             {{ item.type }}<span class="text-hover text-sm">({{ item.quantity }})</span>
-            <Icon v-show="category === item.type" name="emojione-monotone:heavy-check-mark"
+            <Icon v-show="categoryFilter === item.type" name="emojione-monotone:heavy-check-mark"
                 class="absolute text-xs text-white left-[3%]" />
         </label>
     </CollectionFilterBase>
