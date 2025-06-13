@@ -5,23 +5,15 @@ import 'swiper/css';
 import 'swiper/css/grid';
 import 'swiper/css/navigation';
 const modules = [Grid, Navigation];
-
 const openFilter = defineModel<boolean>('openFilter');
 const typeFilter = defineModel<string>('typeFilter');
 
-const focused = ref(false);
 const collections = ['all', 't-shirt', 'shirt', 'trouser', 'short', 'suit',
     'sweat-shirt', 'hoodie', 'sport', 'jacket', 'dress', 'coat'];
 </script>
 
 <template>
-    <div class="lg:col-span-2 sm:col-span-3 col-span-5 bg-background sm:w-full w-[95%] px-3 flex items-center gap-2 transition"
-        :class="{ 'bg-neutral-400 shadow-md': focused }" @click="">
-        <Icon name="mynaui:search" class="text-xl" />
-        <input type="text" id="search"
-            class="flex-1 py-4 sm:text-[14px] text-[14px] placeholder:text-end placeholder:tracking-widest focus:outline-none"
-            placeholder="Search" @focus="focused = true" @blur="focused = false">
-    </div>
+    <CollectionSearch class="lg:col-span-2 sm:col-span-3 col-span-5" />
     <button @click="openFilter = !openFilter" class="cursor-pointer w-fit col-span-5 md:hidden flex items-center gap-2">
         <p class="font-semibold">Filters</p>
         <Icon name="ep:arrow-right" />

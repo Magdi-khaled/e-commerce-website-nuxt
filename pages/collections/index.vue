@@ -47,6 +47,10 @@ onUnmounted(() => window.removeEventListener('resize', handleResize));
                     <span v-if="route.query.category" class="capitalize text-xs border px-[2px]">
                         {{ query.category }}</span>
                     <span v-if="route.query.size" class="capitalize text-xs border px-[2px]">{{ query.size }}</span>
+                    <span v-if="route.query.rate" class="flex items-center capitalize text-xs border px-[2px]">
+                        rate:
+                        <Icon v-for="i in Number(query.rate)" name="solar:star-bold" class="text-orange-700" />
+                    </span>
                 </div>
                 <!-- collection header -->
                 <div class="grid grid-cols-5 items-center lg:gap-8 gap-4">

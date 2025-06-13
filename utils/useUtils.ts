@@ -125,6 +125,7 @@ export const xivCollection = [
     thumbnail: "/collection/product9.webp",
     price: 199,
     available: true,
+    rate: 0,
     category: "men",
     sizes: ["S", "M", "L", "XL", "2X"],
     colors: [
@@ -141,6 +142,7 @@ export const xivCollection = [
     thumbnail: "/collection/product8.webp",
     price: 199,
     available: true,
+    rate: 0,
     category: "men",
     sizes: ["S", "M", "L", "XL"],
     colors: [
@@ -157,6 +159,7 @@ export const xivCollection = [
     thumbnail: "/collection/product7.webp",
     price: 1949,
     available: true,
+    rate: 0,
     category: "men",
     sizes: ["S", "M", "L", "XL"],
     colors: [
@@ -172,6 +175,7 @@ export const xivCollection = [
     thumbnail: "/collection/product6.webp",
     price: 199,
     available: false,
+    rate: 0,
     category: "men",
     sizes: ["S", "M", "L", "XL", "2X"],
     colors: [
@@ -188,6 +192,7 @@ export const xivCollection = [
     thumbnail: "/collection/product5.webp",
     price: 199,
     available: false,
+    rate: 0,
     category: "men",
     sizes: ["M", "L", "XL", "2X"],
     colors: [
@@ -203,6 +208,7 @@ export const xivCollection = [
     thumbnail: "/collection/product4.webp",
     price: 199,
     available: true,
+    rate: 0,
     category: "men",
     sizes: ["XS", "M", "L", "XL", "2X"],
     colors: [
@@ -219,6 +225,7 @@ export const xivCollection = [
     thumbnail: "/collection/product3.webp",
     price: 199,
     available: false,
+    rate: 0,
     category: "men",
     sizes: ["M", "L", "XL"],
     colors: [
@@ -234,6 +241,7 @@ export const xivCollection = [
     thumbnail: "/collection/product2.webp",
     price: 199,
     available: true,
+    rate: 0,
     category: "men",
     sizes: ["M", "L", "XL"],
     colors: [
@@ -250,6 +258,7 @@ export const xivCollection = [
     thumbnail: "/collection/product1.webp",
     price: 199,
     available: true,
+    rate: 0,
     category: "men",
     sizes: ["S", "M", "L", "XL", "2X"],
     colors: [
@@ -267,6 +276,7 @@ export const xivCollection = [
     thumbnail: "/collection/product10.webp",
     price: 199,
     available: true,
+    rate: 0,
     category: "men",
     sizes: ["S", "M", "L", "XL", "2X"],
     colors: [
@@ -284,6 +294,7 @@ export const xivCollection = [
     thumbnail: "/collection/product11.webp",
     price: 199,
     available: false,
+    rate: 0,
     category: "men",
     sizes: ["XS", "S", "M", "L"],
     colors: [
@@ -300,6 +311,7 @@ export const xivCollection = [
     thumbnail: "/collection/product12.webp",
     price: 199,
     available: false,
+    rate: 0,
     category: "men",
     sizes: ["S", "M", "L"],
     colors: [
@@ -317,6 +329,7 @@ export const xivCollection = [
     thumbnail: "/collection/product19.webp",
     price: 199,
     available: true,
+    rate: 0,
     category: "men",
     sizes: ["S", "M", "L"],
     colors: [
@@ -333,6 +346,7 @@ export const xivCollection = [
     thumbnail: "/collection/product20.avif",
     price: 199,
     available: false,
+    rate: 0,
     category: "women",
     sizes: ["S", "M", "L"],
     colors: [
@@ -351,6 +365,7 @@ export const xivCollection = [
     thumbnail: "/collection/product21.avif",
     price: 199,
     available: false,
+    rate: 0,
     category: "women",
     sizes: ["S", "M", "L", "XL"],
     colors: [
@@ -367,6 +382,7 @@ export const xivCollection = [
     thumbnail: "/collection/product15.webp",
     price: 199,
     available: true,
+    rate: 0,
     category: "women",
     sizes: ["XS", "S", "M", "L", "XL"],
     colors: [
@@ -384,6 +400,8 @@ export const xivCollection = [
     thumbnail: "/collection/product16.webp",
     price: 199,
     available: false,
+    rate: 0,
+    rate: 0,
     category: "women",
     sizes: ["M", "L", "XL"],
     colors: [

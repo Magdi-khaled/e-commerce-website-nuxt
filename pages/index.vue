@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const router = useRouter();
-const collections = ['all', 'men', 'women', 'kids'];
-const currentCollection = ref(0);
+const collections: string[] = ['all', 'men', 'women', 'kids'];
+const currentCollection = ref('all');
 // --- Swiper 1 (New Collection) ---
 const isCollectionBeginning = ref<boolean>(true);
 const isCollectionEnd = ref<boolean>(false);
@@ -34,9 +34,10 @@ const updateThisWeekButtonVisibility = () => {
     }
 };
 // --- Show More or Less --- 
+const homeCollection = ref(xivCollection);
 const isShowMore = ref(false);
 const displayedCount = ref(3);
-const displayedCollection = computed(() => xivCollection.slice(0, displayedCount.value) || []);
+const displayedCollection = computed(() => homeCollection.value.slice(0, displayedCount.value) || []);
 const showMore = () => {
     isShowMore.value = true;
     setTimeout(() => {
@@ -51,11 +52,28 @@ const showLess = () => {
         displayedCount.value = 3;
     }, 500);
 };
+// --- Filter (XIV Collection) ---
+const show = ref(false);
+watch(currentCollection, (newCollection) => {
+    show.value = true;
+    setTimeout(() => {
+        show.value = false
+        if (newCollection !== 'all') {
+            const filtered = xivCollection.filter(
+                item => item?.category === newCollection
+            );
+            homeCollection.value = filtered as [];
+        }
+        else homeCollection.value = xivCollection;
+    }, 1000);
+});
 </script>
 
 <template>
     <main>
-        <Search class="px-5 md:px-12" />
+        <!-- collections search -->
+        <CollectionSearch class="px-5 md:px-12 grid gap-4 mb-20" />
+        <Loading v-if="show" />
         <!-- main preview -->
         <div class="mb-10 pl-5 md:pl-12 grid grid-cols-3 gap-6">
             <div class="md:col-span-1 col-span-3 lg:h-[20rem] h-auto flex flex-col justify-between">
@@ -130,12 +148,12 @@ const showLess = () => {
                 <CollectionProduct v-for="(item, index) in displayedCollection" :key="index" :index="index"
                     :item="item" />
             </div>
-            <HomeShowButton v-if="xivCollection.length > displayedCount" :show-function="showMore"
+            <HomeShowButton v-if="homeCollection.length > displayedCount" :show-function="showMore as () => {}"
                 :is-option="isShowMore">
                 <p>More</p>
                 <Icon name="iconamoon:arrow-down-2-bold" class="text-2xl" />
             </HomeShowButton>
-            <HomeShowButton v-else :show-function="showLess" :is-option="isShowMore">
+            <HomeShowButton v-else :show-function="showLess as () => {}" :is-option="isShowMore">
                 <Icon name="iconamoon:arrow-up-2-bold" class="text-2xl" />
                 <p>Show Less</p>
             </HomeShowButton>

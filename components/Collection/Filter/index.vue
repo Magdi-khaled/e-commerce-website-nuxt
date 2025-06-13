@@ -6,39 +6,38 @@ const show = defineModel<boolean>('show');
 const filteredCollection = defineModel<[]>('filtered-collection');
 const typeFilter = defineModel<string>('typeFilter', { default: 'all' });
 
+const MAX_PRICE = 4000;
+
 const sizeFilter = ref<string>(route.query.size as string || '');
 const availFilter = ref<string>(route.query.availability as string || '');
 const categoryFilter = ref<string>(route.query.category as string || '');
 const colorFilter = ref<string[]>(route.query.color as string[] || []);
-const priceFilter = ref<number>(route.query.price as number);
+const priceFilter = ref<number>(Number(route.query.price) || 4000);
+const rateFilter = ref<number>(Number(route.query.rate) || 0);
 
 const clear = () => {
     sizeFilter.value = '';
     availFilter.value = '';
     categoryFilter.value = '';
     colorFilter.value = [];
-    priceFilter.value = '';
+    priceFilter.value = MAX_PRICE;
+    rateFilter.value = 0;
     typeFilter.value = 'all';
     router.push('collections');
     localStorage.clear();
 };
 
-watch(typeFilter, (newtype) => {
-    console.log('old :', typeFilter.value);
-    console.log('new :', newtype);
-    if (newtype !== typeFilter.value) {
-        sizeFilter.value = '';
-    }
-});
-
-watch([sizeFilter, availFilter, categoryFilter, colorFilter, priceFilter, typeFilter],
-    async ([size, availability, category, color, price, type], old) => {
+watch(typeFilter, (newtype) => { if (newtype !== typeFilter.value) sizeFilter.value = '' });
+watch([sizeFilter, availFilter, categoryFilter, colorFilter, priceFilter, typeFilter, rateFilter],
+    async ([size, availability, category, color, price, type, rate], old) => {
+        console.log(rate);
         if (type !== old[5]) {
             sizeFilter.value = '';
             availFilter.value = '';
             categoryFilter.value = '';
             colorFilter.value = [];
-            priceFilter.value = '';
+            priceFilter.value = MAX_PRICE;
+            rateFilter.value = 0;
             localStorage.clear();
         }
         show.value = true;
@@ -52,7 +51,9 @@ watch([sizeFilter, availFilter, categoryFilter, colorFilter, priceFilter, typeFi
                 const matchesColor = color.length > 0 ? item.colors.some(c => color.includes(c.name)) : true;
                 const matchesPrice = price ? item?.price <= price : true;
                 const matchesType = type !== 'all' ? item?.type.split(' ')[1] === type : true;
-                return matchesSize && matchesAvailability && matchesCategory && matchesType && matchesColor && matchesPrice;
+                const matchesRate = rate ? item?.rate === rate : true;
+                return matchesSize && matchesAvailability && matchesCategory && matchesType
+                    && matchesColor && matchesPrice && matchesRate;
             }) || [];
             filteredCollection.value = filtered as [];
             localStorage.setItem('products', JSON.stringify(filtered));
@@ -66,6 +67,7 @@ watch([sizeFilter, availFilter, categoryFilter, colorFilter, priceFilter, typeFi
             category,
             color,
             price,
+            rate
         });
 
         await router.push({
@@ -87,6 +89,6 @@ watch([sizeFilter, availFilter, categoryFilter, colorFilter, priceFilter, typeFi
         <CollectionFilterCategory v-model:category-filter="categoryFilter" :type="typeFilter" />
         <CollectionFilterColors v-model:color-filter="colorFilter" />
         <CollectionFilterPrice v-model:price-filter="priceFilter" />
-        <CollectionFilterRate />
+        <CollectionFilterRate v-model:rate-filter="rateFilter" />
     </div>
 </template>

@@ -6,6 +6,7 @@ export default function useHelper(filters: {
   color: string[];
   price: number;
   type: string;
+  rate: number;
 }) {
   const buildQuery = () =>
     Object.fromEntries(
@@ -14,9 +15,10 @@ export default function useHelper(filters: {
         availability: filters.availability,
         category: filters.category,
         color: filters.color,
-        price: filters.price,
-        // price: filters.price !== 200 ? filters.price : null,
+        // price: filters.price,
+        price: filters.price !== 4000 ? filters.price : null,
         type: filters.type !== "all" ? filters.type : null,
+        rate: filters.rate !== 0 ? filters.rate : null,
       }).filter(
         ([_, value]) =>
           value !== null &&
