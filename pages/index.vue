@@ -117,7 +117,7 @@ watch(currentCollection, (newCollection) => {
                     this week
                     <span class="text-fade absolute text-[16px] top-[40%]">(50)</span>
                 </h1>
-                <nuxt-link to="/"
+                <nuxt-link :to="{ name: 'collections' }"
                     class="sm:text-sm text-xs text-hover cursor-pointer hover:underline hover:underline-offset-2">
                     See All</nuxt-link>
             </div>

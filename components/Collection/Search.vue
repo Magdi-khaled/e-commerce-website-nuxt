@@ -1,9 +1,9 @@
 <script setup lang="ts">
 const route = useRoute();
 const items = [
-    { title: 'men', path: '/' },
-    { title: 'women', path: '/' },
-    { title: 'kids', path: '/' }
+    { title: 'men', path: { name: 'collections', query: { category: 'men' } } },
+    { title: 'women', path: { name: 'collections', query: { category: 'women' } } },
+    { title: 'kids', path: { name: 'collections', query: { category: 'kids' } } }
 ];
 
 const focused = ref(false);

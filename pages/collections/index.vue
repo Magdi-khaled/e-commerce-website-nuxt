@@ -13,7 +13,8 @@ const query = ref(route.query);
 const show = ref(false);
 const currentPage = ref(1);
 const itemsPerPage = 12;
-const allProducts = ref<[]>(storedProducts ? JSON.parse(storedProducts) : xivCollection as [] || []);
+// const allProducts = ref<[]>(storedProducts ? JSON.parse(storedProducts) : xivCollection as [] || []);
+const allProducts = ref<[]>(xivCollection as [] || []);
 
 const openFilter = ref(false);
 const typeFilter = ref<string>(route.query.type as string || 'all');
@@ -23,7 +24,8 @@ const paginatedProducts = computed(() => {
     const end = start + itemsPerPage;
     return allProducts.value.slice(start, end);
 });
-watch(() => route.query, (newVal) => query.value = newVal)
+watch(() => route.query, (newVal) => query.value = newVal);
+
 const handleResize = () => openFilter.value = false;
 onMounted(() => window.addEventListener('resize', handleResize));
 onUnmounted(() => window.removeEventListener('resize', handleResize));
@@ -35,7 +37,7 @@ onUnmounted(() => window.removeEventListener('resize', handleResize));
         <div class="pl-5 md:pl-12 md:col-span-1 col-span-4 md:block hidden">
             <p class="font-bold">Filters</p>
             <CollectionFilter v-model:filtered-collection="allProducts" v-model:show="show"
-                v-model:type-filter="typeFilter" />
+                v-model:type-filter="typeFilter" v-model:current-page="currentPage" />
         </div>
         <div class="pl-5 md:pl-6 md:col-span-3 col-span-4 justify-between">
             <Breadcrumbs />
@@ -76,7 +78,7 @@ onUnmounted(() => window.removeEventListener('resize', handleResize));
                 </div>
                 <div v-if="allProducts.length > 0" class="w-full flex justify-center">
                     <CollectionPagination v-model:current-page="currentPage" :total-items="allProducts.length"
-                        :items-per-page="itemsPerPage" />
+                        :items-per-page="itemsPerPage" v-model:show="show" />
                 </div>
             </div>
         </div>

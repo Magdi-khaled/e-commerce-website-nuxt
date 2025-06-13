@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const show = defineModel<boolean>('show');
 const props = defineProps<{
     totalItems: number
     itemsPerPage: number
@@ -27,14 +28,21 @@ const getPages = computed(() => {
 
 const goToPage = (page: number | string) => {
     if (typeof page === 'number' && page >= 1 && page <= totalPages.value) {
-        currentPage.value = page;
+        show.value = true;
+        setTimeout(() => { show.value = false; currentPage.value = page }, 600);
     }
 };
 const goNext = () => {
-    if (currentPage.value < totalPages.value) currentPage.value++;
+    if (currentPage.value < totalPages.value) {
+        show.value = true;
+        setTimeout(() => { show.value = false; currentPage.value++ }, 600);
+    }
 };
 const goPrev = () => {
-    if (currentPage.value > 1) currentPage.value--;
+    if (currentPage.value > 1) {
+        show.value = true;
+        setTimeout(() => { show.value = false; currentPage.value-- }, 600);
+    };
 };
 </script>
 

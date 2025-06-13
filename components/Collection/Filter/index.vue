@@ -3,6 +3,7 @@ const route = useRoute();
 const router = useRouter();
 
 const show = defineModel<boolean>('show');
+const currentPage = defineModel<number>('currentPage');
 const filteredCollection = defineModel<[]>('filtered-collection');
 const typeFilter = defineModel<string>('typeFilter', { default: 'all' });
 
@@ -27,10 +28,21 @@ const clear = () => {
     localStorage.clear();
 };
 
+onBeforeMount(() => {
+    if (categoryFilter.value !== '') {
+        show.value = true;
+        setTimeout(() => {
+            const filtered = xivCollection?.filter(item => item?.category === categoryFilter.value) || [];
+            filteredCollection.value = filtered as [];
+            localStorage.setItem('products', JSON.stringify(filtered));
+            show.value = false;
+        }, 500);
+    }
+});
+
 watch(typeFilter, (newtype) => { if (newtype !== typeFilter.value) sizeFilter.value = '' });
-watch([sizeFilter, availFilter, categoryFilter, colorFilter, priceFilter, typeFilter, rateFilter],
-    async ([size, availability, category, color, price, type, rate], old) => {
-        console.log(rate);
+watch([sizeFilter, availFilter, categoryFilter, colorFilter, priceFilter, typeFilter, rateFilter, currentPage],
+    async ([size, availability, category, color, price, type, rate, page], old) => {
         if (type !== old[5]) {
             sizeFilter.value = '';
             availFilter.value = '';
@@ -61,6 +73,7 @@ watch([sizeFilter, availFilter, categoryFilter, colorFilter, priceFilter, typeFi
         }, 1000);
 
         const { buildQuery } = useHelper({
+            page,
             type,
             size,
             availability,
