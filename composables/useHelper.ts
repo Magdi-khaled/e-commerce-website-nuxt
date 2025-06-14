@@ -12,13 +12,13 @@ export default function useHelper(filters: {
   const buildQuery = () =>
     Object.fromEntries(
       Object.entries({
-        page: filters.page !== 1 ? filters.page : null,
-        size: filters.size,
-        availability: filters.availability,
-        category: filters.category,
-        color: filters.color,
-        price: filters.price !== 4000 ? filters.price : null,
         type: filters.type !== "all" ? filters.type : null,
+        page: filters.page !== 1 ? filters.page : null,
+        category: filters.category,
+        availability: filters.availability,
+        price: filters.price !== 4000 ? filters.price : null,
+        size: filters.size,
+        color: filters.color,
         rate: filters.rate !== 0 ? filters.rate : null,
       }).filter(
         ([_, value]) =>

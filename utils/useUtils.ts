@@ -401,7 +401,6 @@ export const xivCollection = [
     price: 199,
     available: false,
     rate: 0,
-    rate: 0,
     category: "women",
     sizes: ["M", "L", "XL"],
     colors: [

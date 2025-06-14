@@ -29,20 +29,33 @@ const clear = () => {
 };
 
 onBeforeMount(() => {
-    if (categoryFilter.value !== '') {
+    if (Object.keys(route.query).length > 0) {
         show.value = true;
         setTimeout(() => {
-            const filtered = xivCollection?.filter(item => item?.category === categoryFilter.value) || [];
+            const filtered = xivCollection?.filter((item) => {
+                const matchesSize = sizeFilter.value ? item.sizes.includes(sizeFilter.value) : true;
+                const matchesAvailability =
+                    availFilter.value === 'available' ? item.available === true
+                        : availFilter.value === 'out of stock' ? item.available === false : true;
+                const matchesCategory = categoryFilter.value ? item?.category === categoryFilter.value : true;
+                const matchesColor = colorFilter.value.length > 0 ? item.colors.some(c => colorFilter.value.includes(c.name)) : true;
+                const matchesPrice = priceFilter.value ? item?.price <= priceFilter.value : true;
+                const matchesType = typeFilter.value !== 'all' ? item?.type.split(' ')[1] === typeFilter.value : true;
+                const matchesRate = rateFilter.value ? item?.rate === rateFilter.value : true;
+                return matchesSize && matchesAvailability && matchesCategory && matchesType
+                    && matchesColor && matchesPrice && matchesRate;
+            }) || [];
             filteredCollection.value = filtered as [];
             localStorage.setItem('products', JSON.stringify(filtered));
             show.value = false;
-        }, 500);
+        }, 600);
     }
 });
 
-watch(typeFilter, (newtype) => { if (newtype !== typeFilter.value) sizeFilter.value = '' });
 watch([sizeFilter, availFilter, categoryFilter, colorFilter, priceFilter, typeFilter, rateFilter, currentPage],
     async ([size, availability, category, color, price, type, rate, page], old) => {
+        if (route.query.page) currentPage.value = 1;
+
         if (type !== old[5]) {
             sizeFilter.value = '';
             availFilter.value = '';
@@ -70,31 +83,23 @@ watch([sizeFilter, availFilter, categoryFilter, colorFilter, priceFilter, typeFi
             filteredCollection.value = filtered as [];
             localStorage.setItem('products', JSON.stringify(filtered));
             show.value = false;
-        }, 1000);
+        }, 600);
 
         const { buildQuery } = useHelper({
-            page,
-            type,
-            size,
-            availability,
-            category,
-            color,
-            price,
-            rate
+            page, type, size, availability, category, color, price, rate
         });
-
-        await router.push({
-            path: route.fullPath.split('?')[0],
-            query: buildQuery()
-        });
+        await router.push({ path: route.fullPath.split('?')[0], query: buildQuery() });
     });
 </script>
 
 <template>
     <div class="my-4">
-        <div class="w-full text-end">
-            <button v-show="route.query" @click="clear" title="Clear All Filters"
-                class="w-fit uppercase text-xs underline text-fade hover:text-orange-600 cursor-pointer transition">clear
+        <div class="w-full flex items-center justify-end">
+            <button v-show="Object.keys(route.query).length > 0 && !route.query.page" @click="clear"
+                title="Clear All Filters"
+                class="uppercase text-xs underline text-fade flex items-center gap-1 hover:text-orange-600 cursor-pointer transition">
+                clear filters
+                <Icon name="streamline-plump:recycle-bin-2-remix" />
             </button>
         </div>
         <CollectionFilterSize v-model:size-filter="sizeFilter" />

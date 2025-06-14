@@ -3,7 +3,7 @@ const route = useRoute();
 </script>
 
 <template>
-    <div>
+    <div class="">
         hello from product {{ route.params.id }} page
     </div>
 </template>

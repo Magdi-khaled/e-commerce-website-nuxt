@@ -43,14 +43,14 @@ const showMore = () => {
     setTimeout(() => {
         isShowMore.value = false;
         displayedCount.value += 3;
-    }, 1500);
+    }, 1000);
 };
 const showLess = () => {
     isShowMore.value = true;
     setTimeout(() => {
         isShowMore.value = false;
         displayedCount.value = 3;
-    }, 500);
+    }, 600);
 };
 // --- Filter (XIV Collection) ---
 const show = ref(false);
