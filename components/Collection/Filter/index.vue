@@ -6,6 +6,7 @@ const show = defineModel<boolean>('show');
 const currentPage = defineModel<number>('currentPage');
 const filteredCollection = defineModel<[]>('filtered-collection');
 const typeFilter = defineModel<string>('typeFilter', { default: 'all' });
+const newFilter = ref<boolean>(Boolean(route.query.new));
 
 const MAX_PRICE = 4000;
 
@@ -24,6 +25,7 @@ const clear = () => {
     priceFilter.value = MAX_PRICE;
     rateFilter.value = 0;
     typeFilter.value = 'all';
+    newFilter.value = null;
     router.push('collections');
     localStorage.clear();
 };
@@ -52,9 +54,10 @@ onBeforeMount(() => {
     }
 });
 
-watch([sizeFilter, availFilter, categoryFilter, colorFilter, priceFilter, typeFilter, rateFilter, currentPage],
-    async ([size, availability, category, color, price, type, rate, page], old) => {
+watch([sizeFilter, availFilter, categoryFilter, colorFilter, priceFilter, typeFilter, rateFilter, currentPage, newFilter],
+    async ([size, availability, category, color, price, type, rate, page, isNew], old) => {
         if (route.query.page) currentPage.value = 1;
+        if (route.query.new === true) clear();
 
         if (type !== old[5]) {
             sizeFilter.value = '';
@@ -86,7 +89,7 @@ watch([sizeFilter, availFilter, categoryFilter, colorFilter, priceFilter, typeFi
         }, 600);
 
         const { buildQuery } = useHelper({
-            page, type, size, availability, category, color, price, rate
+            new: isNew, page, type, size, availability, category, color, price, rate
         });
         await router.push({ path: route.fullPath.split('?')[0], query: buildQuery() });
     });

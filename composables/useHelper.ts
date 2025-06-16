@@ -1,5 +1,6 @@
 // composables/useHelper.ts
 export default function useHelper(filters: {
+  new: boolean;
   page: number;
   size: string;
   availability: string;
@@ -12,6 +13,7 @@ export default function useHelper(filters: {
   const buildQuery = () =>
     Object.fromEntries(
       Object.entries({
+        new: filters.new,
         type: filters.type !== "all" ? filters.type : null,
         page: filters.page !== 1 ? filters.page : null,
         category: filters.category,
