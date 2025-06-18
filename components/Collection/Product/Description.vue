@@ -56,17 +56,7 @@ const selectedQuantity = ref(1);
 
             <!-- product quantity -->
             <p class="font-light">Quantity</p>
-            <div class="grid grid-cols-3 my-2 border-[2px] border-hover w-[120px]">
-                <button @click="selectedQuantity++"
-                    class="cursor-pointer flex items-center justify-center w-full h-full hover:bg-hover hover:text-neutral-50 transition-all">
-                    <Icon name="line-md:plus" />
-                </button>
-                <p class="font-semibold border-x-[2px] border-x-hover py-1 text-center"> {{ selectedQuantity }}</p>
-                <button @click="selectedQuantity > 1 ? selectedQuantity-- : true"
-                    class="cursor-pointer flex items-center justify-center w-full h-full hover:bg-hover hover:text-neutral-50 transition-all">
-                    <Icon name="line-md:minus" />
-                </button>
-            </div>
+            <CollectionProductQuantity v-model:selected-quantity="selectedQuantity" />
 
             <!-- measurment guide -->
             <nuxt-link to="/collections/measurementguide"

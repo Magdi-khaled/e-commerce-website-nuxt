@@ -1,0 +1,25 @@
+<script setup lang="ts">
+const props = defineProps<{
+    isCart?: boolean
+}>();
+const selectedQuantity = defineModel<number>('selectedQuantity');
+
+const increaseQuantity = () => selectedQuantity.value++;
+const decreaseQuantity = () => selectedQuantity.value > 1 ? selectedQuantity.value-- : true;
+</script>
+
+<template>
+    <div class="grid grid-cols-3 border-[2px] border-hover"
+        :class="{ 'w-[120px] my-2': !isCart, 'w-[90px] text-sm': isCart }">
+        <button @click="increaseQuantity"
+            class="cursor-pointer flex items-center justify-center w-full h-full hover:bg-hover hover:text-neutral-50 transition-all">
+            <Icon name="line-md:plus" />
+        </button>
+        <p class="border-x-[2px] border-x-hover py-px text-center" :class="{ 'font-semibold': !isCart }"> {{
+            selectedQuantity }}</p>
+        <button @click="decreaseQuantity"
+            class="cursor-pointer flex items-center justify-center w-full h-full hover:bg-hover hover:text-neutral-50 transition-all">
+            <Icon name="line-md:minus" />
+        </button>
+    </div>
+</template>

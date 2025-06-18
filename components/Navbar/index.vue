@@ -7,6 +7,7 @@ const items = [
 ];
 const open = ref(false);
 const show = ref(false);
+const showCart = ref(false);
 const newCollection = () => {
     if (!route.query.new) {
         show.value = true;
@@ -39,7 +40,7 @@ const newCollection = () => {
                     class="cursor-pointer md:flex hidden items-center p-3 bg-primary text-neutral-50 rounded-full -rotate-45 hover:bg-fade transition">
                     <Icon name="mingcute:heart-line" size="20" />
                 </button>
-                <div class="cursor-pointer flex items-center group">
+                <button @click="showCart = true" class="cursor-pointer flex items-center group">
                     <p
                         class="font-light tracking-widest text-[12px] bg-primary text-neutral-50 py-[14px] px-6 rounded-full md:block hidden group-hover:bg-fade transition">
                         Cart
@@ -48,7 +49,8 @@ const newCollection = () => {
                         class="flex items-center border-4 group-hover:border-fade group-hover:text-fade rounded-full p-2 bg-neutral-50 group-hover:bg-neutral-200 transition">
                         <Icon name="gravity-ui:shopping-bag" size="20" />
                     </div>
-                </div>
+                </button>
+                <Cart v-model:open="showCart" />
 
                 <button
                     class="cursor-pointer flex items-center p-3 bg-primary text-neutral-50 rounded-full hover:bg-fade transition">
