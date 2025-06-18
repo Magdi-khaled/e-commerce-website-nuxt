@@ -66,6 +66,7 @@ watch([sizeFilter, availFilter, categoryFilter, colorFilter, priceFilter, typeFi
             colorFilter.value = [];
             priceFilter.value = MAX_PRICE;
             rateFilter.value = 0;
+            newFilter.value = null;
             localStorage.clear();
         }
         show.value = true;

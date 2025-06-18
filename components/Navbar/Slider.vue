@@ -6,6 +6,7 @@ const items = [
     { title: 'Home', path: '/' },
     { title: 'Collections', path: '/collections' },
     { title: 'New', path: 'collections' },
+    { title: 'Shopping Cart', path: '/cart' },
     { title: 'About', path: '/' },
     { title: 'Support', path: '/' },
 ];
