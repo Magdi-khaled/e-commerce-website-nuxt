@@ -1,36 +1,50 @@
+import type Product from "~/types/useProduct";
+
 export const previewItems = [
   {
     title: "Full Sleeve Zipper",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "Cotton T Shirt",
     thumbnail: "/collection/product1.webp",
     price: 199,
   },
   {
     title: "Full Sleeve Zipper",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "Cotton T Shirt",
     thumbnail: "/collection/product2.webp",
     price: 199,
   },
   {
     title: "Full Sleeve Zipper",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "Cotton T Shirt",
     thumbnail: "/collection/product3.webp",
     price: 199,
   },
   {
     title: "Full Sleeve Zipper",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "Cotton T Shirt",
     thumbnail: "/collection/product4.webp",
     price: 199,
   },
   {
     title: "Full Sleeve Zipper",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "Cotton T Shirt",
     thumbnail: "/collection/product5.webp",
     price: 199,
   },
   {
     title: "Full Sleeve Zipper",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "Cotton T Shirt",
     thumbnail: "/collection/product6.webp",
     price: 199,
@@ -65,30 +79,40 @@ export const breakPointsPreview = {
 export const newThisWeek = [
   {
     title: "Embroidered Seersucker Shirt",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "V-Neck T-Shirt",
     thumbnail: "/collection/week/product1.webp",
     price: 199,
   },
   {
     title: "Basic Slim Fit T-Shirt",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "Cotton T Shirt",
     thumbnail: "/collection/week/product2.webp",
     price: 199,
   },
   {
     title: "Blurred Print T-Shirt",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "Henley T-Shirt",
     thumbnail: "/collection/week/product3.webp",
     price: 199,
   },
   {
     title: "Full Sleeve Zipper",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "Crewneck T-Shirt",
     thumbnail: "/collection/week/product4.webp",
     price: 199,
   },
   {
     title: "Embroidered Seersucker Shirt",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "V-Neck T-Shirt",
     thumbnail: "/collection/week/product1.webp",
     price: 199,
@@ -117,10 +141,12 @@ export const breakPointsWeek = {
   },
 };
 
-export const xivCollection = [
+export const xivCollection: Product[] = [
   {
     id: 1,
     title: "Basic Heavy Weight T-shirt",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "cotton t-shirt",
     thumbnail: "/collection/product9.webp",
     price: 199,
@@ -134,10 +160,19 @@ export const xivCollection = [
       { color: "1e1e1e", name: "black" },
       { color: "f1f1f1", name: "white" },
     ],
+    images: [
+      "/collection/product9.webp",
+      "/collection/product9.webp",
+      "/collection/product9.webp",
+      "/collection/product9.webp",
+      "/collection/product9.webp",
+    ],
   },
   {
     id: 2,
     title: "Embroidered Seersucker Shirt",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "rounded-neck t-shirt",
     thumbnail: "/collection/product8.webp",
     price: 199,
@@ -151,10 +186,19 @@ export const xivCollection = [
       { color: "800000", name: "red" },
       { color: "800080", name: "purple" },
     ],
+    images: [
+      "/collection/product8.webp",
+      "/collection/product8.webp",
+      "/collection/product8.webp",
+      "/collection/product8.webp",
+      "/collection/product8.webp",
+    ],
   },
   {
     id: 3,
     title: "Basic Polo T-Shirt",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "rounded-neck t-shirt",
     thumbnail: "/collection/product7.webp",
     price: 1949,
@@ -167,10 +211,19 @@ export const xivCollection = [
       { color: "008000", name: "green" },
       { color: "a5d6ca", name: "teal" },
     ],
+    images: [
+      "/collection/product7.webp",
+      "/collection/product7.webp",
+      "/collection/product7.webp",
+      "/collection/product7.webp",
+      "/collection/product7.webp",
+    ],
   },
   {
     id: 4,
     title: "Full Sleeve Zipper",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "crewneck t-shirt",
     thumbnail: "/collection/product6.webp",
     price: 199,
@@ -184,10 +237,19 @@ export const xivCollection = [
       { color: "800000", name: "red" },
       { color: "800080", name: "purple" },
     ],
+    images: [
+      "/collection/product6.webp",
+      "/collection/product6.webp",
+      "/collection/product6.webp",
+      "/collection/product6.webp",
+      "/collection/product6.webp",
+    ],
   },
   {
     id: 5,
     title: "Embroidered Seersucker Shirt",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "c-neck t-shirt",
     thumbnail: "/collection/product5.webp",
     price: 199,
@@ -200,10 +262,19 @@ export const xivCollection = [
       { color: "a5d6ca", name: "teal" },
       { color: "000080", name: "blue" },
     ],
+    images: [
+      "/collection/product5.webp",
+      "/collection/product5.webp",
+      "/collection/product5.webp",
+      "/collection/product5.webp",
+      "/collection/product5.webp",
+    ],
   },
   {
     id: 6,
     title: "Embroidered Seersucker Shirt",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "oversize t-shirt",
     thumbnail: "/collection/product4.webp",
     price: 199,
@@ -217,10 +288,19 @@ export const xivCollection = [
       { color: "ff8c00", name: "orange" },
       { color: "ffd700", name: "yellow" },
     ],
+    images: [
+      "/collection/product4.webp",
+      "/collection/product4.webp",
+      "/collection/product4.webp",
+      "/collection/product4.webp",
+      "/collection/product4.webp",
+    ],
   },
   {
     id: 7,
     title: "Embroidered Seersucker Jacket",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "caught jacket",
     thumbnail: "/collection/product3.webp",
     price: 199,
@@ -233,10 +313,19 @@ export const xivCollection = [
       { color: "f1f1f1", name: "white" },
       { color: "b9c1e8", name: "lightblue	" },
     ],
+    images: [
+      "/collection/product3.webp",
+      "/collection/product3.webp",
+      "/collection/product3.webp",
+      "/collection/product3.webp",
+      "/collection/product3.webp",
+    ],
   },
   {
     id: 8,
     title: "oversize seersucker t-shirt",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "oversize t-shirt",
     thumbnail: "/collection/product2.webp",
     price: 199,
@@ -250,10 +339,19 @@ export const xivCollection = [
       { color: "800000", name: "red" },
       { color: "800080", name: "purple" },
     ],
+    images: [
+      "/collection/product2.webp",
+      "/collection/product2.webp",
+      "/collection/product2.webp",
+      "/collection/product2.webp",
+      "/collection/product2.webp",
+    ],
   },
   {
     id: 9,
     title: "k-cloth trouser",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "cloth trouser",
     thumbnail: "/collection/product1.webp",
     price: 199,
@@ -268,10 +366,19 @@ export const xivCollection = [
       { color: "008080", name: "emerald" },
       { color: "8a2be2", name: "lightpurple" },
     ],
+    images: [
+      "/collection/product1.webp",
+      "/collection/product1.webp",
+      "/collection/product1.webp",
+      "/collection/product1.webp",
+      "/collection/product1.webp",
+    ],
   },
   {
     id: 10,
     title: "Crunchy Jean Jacket",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "crunch jacket",
     thumbnail: "/collection/product10.webp",
     price: 199,
@@ -286,10 +393,19 @@ export const xivCollection = [
       { color: "2f4f4f", name: "olive" },
       { color: "cd5c5c", name: "kashmir" },
     ],
+    images: [
+      "/collection/product10.webp",
+      "/collection/product10.webp",
+      "/collection/product10.webp",
+      "/collection/product10.webp",
+      "/collection/product10.webp",
+    ],
   },
   {
     id: 11,
     title: "Long sleeved T-shirt",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "sleeved t-shirt",
     thumbnail: "/collection/product11.webp",
     price: 199,
@@ -303,10 +419,19 @@ export const xivCollection = [
       { color: "800000", name: "red" },
       { color: "800080", name: "purple" },
     ],
+    images: [
+      "/collection/product11.webp",
+      "/collection/product11.webp",
+      "/collection/product11.webp",
+      "/collection/product11.webp",
+      "/collection/product11.webp",
+    ],
   },
   {
     id: 12,
     title: "baseball Seersucker Jacket",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "baseball jacket",
     thumbnail: "/collection/product12.webp",
     price: 199,
@@ -321,10 +446,19 @@ export const xivCollection = [
       { color: "2f4f4f", name: "olive" },
       { color: "cd5c5c", name: "kashmir" },
     ],
+    images: [
+      "/collection/product12.webp",
+      "/collection/product12.webp",
+      "/collection/product12.webp",
+      "/collection/product12.webp",
+      "/collection/product12.webp",
+    ],
   },
   {
     id: 13,
     title: "Oversize Seersucker T-Shirt",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "oversize t-shirt",
     thumbnail: "/collection/product19.webp",
     price: 199,
@@ -338,10 +472,19 @@ export const xivCollection = [
       { color: "008080", name: "emerald" },
       { color: "800080", name: "purple" },
     ],
+    images: [
+      "/collection/product19.webp",
+      "/collection/product19.webp",
+      "/collection/product19.webp",
+      "/collection/product19.webp",
+      "/collection/product19.webp",
+    ],
   },
   {
     id: 14,
     title: "Heavy Seersucker Coat",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "heavy coat",
     thumbnail: "/collection/product20.avif",
     price: 199,
@@ -357,10 +500,19 @@ export const xivCollection = [
       { color: "800000", name: "red" },
       { color: "800080", name: "purple" },
     ],
+    images: [
+      "/collection/product20.avif",
+      "/collection/product20.avif",
+      "/collection/product20.avif",
+      "/collection/product20.avif",
+      "/collection/product20.avif",
+    ],
   },
   {
     id: 15,
     title: "Sporty Seersucker Suit",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "Sporty suit",
     thumbnail: "/collection/product21.avif",
     price: 199,
@@ -374,10 +526,19 @@ export const xivCollection = [
       { color: "2f4f4f", name: "olive" },
       { color: "cd5c5c", name: "kashmir" },
     ],
+    images: [
+      "/collection/product21.avif",
+      "/collection/product21.avif",
+      "/collection/product21.avif",
+      "/collection/product21.avif",
+      "/collection/product21.avif",
+    ],
   },
   {
     id: 16,
     title: "comfortable sportswear",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "training sport wear",
     thumbnail: "/collection/product15.webp",
     price: 199,
@@ -392,10 +553,19 @@ export const xivCollection = [
       { color: "008080", name: "emerald" },
       { color: "8a2be2", name: "lightpurple" },
     ],
+    images: [
+      "/collection/product15.webp",
+      "/collection/product15.webp",
+      "/collection/product15.webp",
+      "/collection/product15.webp",
+      "/collection/product15.webp",
+    ],
   },
   {
     id: 17,
     title: "Women Sweat Shirt",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "oversize sweat-shirt",
     thumbnail: "/collection/product16.webp",
     price: 199,
@@ -409,22 +579,39 @@ export const xivCollection = [
       { color: "800000", name: "red" },
       { color: "800080", name: "purple" },
     ],
+    images: [
+      "/collection/product16.webp",
+      "/collection/product16.webp",
+      "/collection/product16.webp",
+      "/collection/product16.webp",
+      "/collection/product16.webp",
+    ],
   },
   {
     id: 18,
     title: "Women Sweat Shirt",
+    description:
+      "Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.",
     type: "oversize sweat-shirt",
     thumbnail: "/collection/product17.webp",
     price: 199,
     available: true,
+    rate: 0,
     category: "women",
-    sizes: ["M", "L", "XL", "2XL"],
+    sizes: ["M", "L", "XL", "2X"],
     colors: [
       { color: "800000", name: "red" },
       { color: "b9c1e8", name: "lightblue" },
       { color: "ffe4b5", name: "sugar" },
       { color: "008000", name: "green" },
       { color: "800080", name: "purple" },
+    ],
+    images: [
+      "/collection/product17.webp",
+      "/collection/product17.webp",
+      "/collection/product17.webp",
+      "/collection/product17.webp",
+      "/collection/product17.webp",
     ],
   },
 ];
