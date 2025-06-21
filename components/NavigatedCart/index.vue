@@ -11,14 +11,15 @@ const items = xivCollection as Product[]
             text-sm flex flex-col">
             <!-- cart header -->
             <div class="md:pt-10 pt-6 pb-4 px-4 md:px-8 flex justify-between border-b border-b-background">
-                <nuxt-link to="/cart" @click="open = false" class="font-medium hover:text-fade transition-all">Shopping Cart</nuxt-link>
+                <nuxt-link to="/cart" @click="open = false" class="font-medium hover:text-fade transition-all">Shopping
+                    Cart</nuxt-link>
                 <button @click="open = false" class="cursor-pointer hover:text-hover transition-all">
                     <Icon name="line-md:remove" />
                 </button>
             </div>
             <!-- cart items -->
             <div class="flex-1 overflow-y-auto px-4 md:px-8 py-4 space-y-4">
-                <CartItem :item="item" v-for="(item, index) in items" :key="index"
+                <NavigatedCartItem :item="item" v-for="(item, index) in items" :key="index"
                     class="border-b border-b-background pb-4 last:border-b-0" />
             </div>
             <!-- checkout button -->

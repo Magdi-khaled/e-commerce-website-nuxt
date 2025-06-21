@@ -1,31 +1,55 @@
 <script setup lang="ts">
 import type Product from '~/types/useProduct';
 
-const props = defineProps<{ item: Product }>();
+const route = useRoute();
 
-const orderQuantity = ref(1);
+const props = defineProps<{
+    item: Product,
+    index?: number
+}>();
+const selectedQuantity = ref(1);
 </script>
 
 <template>
-    <div class="flex sm:gap-4 gap-2">
-        <nuxt-link :to="`/collections/${item.id}`">
-            <img :src="item.thumbnail" :alt="`Cart Item-${item.title}`" class="size-32 border border-background">
-        </nuxt-link>
-        <div class="py-px flex-1 flex flex-col justify-between capitalize text-sm">
-            <div>
-                <div class="flex justify-between">
-                    <p>{{ item.title }}</p>
-                    <button title="Remove this item"
-                        class="cursor-pointer sm:text-lg text-sm text-red-700 hover:text-red-500 transition-all">
-                        <Icon name="pajamas:remove" />
-                    </button>
-                </div>
-                <p class="text-hover">Color: {{ item.colors[0].name }}</p>
-                <p class="text-hover">Size: {{ item.sizes[1] }}</p>
+    <div class="flex items-center sm:gap-4 gap-2">
+        <div class="relative">
+            <div class="flex items-center gap-2">
+                <nuxt-link :to="`/collections/${item.id}`" class="relative">
+                    <img :src="item.thumbnail" loading="lazy" :alt="`New Week Product (${index})`" class="m-auto lg:w-[20rem] md:w-[18rem] sm:w-[14rem] w-[18rem] 
+                    lg:h-[20rem] md:h-[16rem] sm:h-[14rem] h-[18rem] border-[1px] border-neutral-300 object-cover">
+                </nuxt-link>
+                <button
+                    class="absolute right-0 lg:bottom-[21.2%] md:bottom-[25%] sm:bottom-[27%] bottom-[22.5%] p-1 border border-neutral-300 bg-white flex cursor-pointer text-xl text-hover hover:text-fade transition-all">
+                    <Icon name="mingcute:heart-line" size="20" class="-rotate-45" />
+                </button>
             </div>
-            <div class="w-full flex items-end justify-between">
-                <p>$ {{ item.price }}</p>
-                <CollectionProductQuantity :selected-quantity="orderQuantity" :is-cart="true" />
+            <div class="md:text-[14px] text-xs my-2 tracking-wide font-semibold capitalize">
+                <h1 class="text-neutral-500">{{ item.type }}</h1>
+                <div class="mt-1 flex justify-between h-12">
+                    <h2>{{ item.title }}</h2>
+                    <p>${{ item.price }}</p>
+                </div>
+            </div>
+            <button title="Remove from Cart"
+                class="absolute top-1 -right-10 cursor-pointer text-2xl text-hover hover:text-fade">
+                <Icon name="heroicons:x-mark" />
+            </button>
+        </div>
+        <!--  order data -->
+        <div class="grid gap-4 items-start mb-16">
+            <p class="font-semibold pl-1">{{ item.sizes[0] }}</p>
+            <div class="size-8 border border-neutral-400" :style="{ backgroundColor: `#${item.colors[0].color}` }" />
+            <div class="grid border-[2px] border-hover">
+                <button class="cursor-pointer py-[6px] flex items-cente
+                    r justify-center w-full h-full hover:bg-hover hover:text-neutral-50 transition-all">
+                    <Icon name="line-md:plus" />
+                </button>
+                <p class="border-y-[2px] border-y-hover py-px text-center">
+                    {{ selectedQuantity }}</p>
+                <button
+                    class="cursor-pointer py-[6px] flex items-center justify-center w-full h-full hover:bg-hover hover:text-neutral-50 transition-all">
+                    <Icon name="line-md:minus" />
+                </button>
             </div>
         </div>
     </div>

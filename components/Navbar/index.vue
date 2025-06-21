@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const route = useRoute();
+const router = useRouter();
 const items = [
     { title: 'Home', path: '/' },
     { title: 'Collections', path: '/collections' },
@@ -36,7 +37,7 @@ const newCollection = () => {
             <NavbarSlider v-model:open="open" />
             <Logo class="md:ml-0 ml-16" />
             <div class="flex items-center justify-between gap-2 sm:gap-12">
-                <button
+                <button @click="router.push({ name: 'cart', hash: '#favourites' })"
                     class="cursor-pointer md:flex hidden items-center p-3 bg-primary text-neutral-50 rounded-full -rotate-45 hover:bg-fade transition">
                     <Icon name="mingcute:heart-line" size="20" />
                 </button>
@@ -50,7 +51,7 @@ const newCollection = () => {
                         <Icon name="gravity-ui:shopping-bag" size="20" />
                     </div>
                 </button>
-                <Cart v-model:open="showCart" />
+                <NavigatedCart v-model:open="showCart" />
 
                 <button
                     class="cursor-pointer flex items-center p-3 bg-primary text-neutral-50 rounded-full hover:bg-fade transition">

@@ -25,8 +25,13 @@ const props = defineProps<{
             </div>
         </nuxt-link>
 
+        <!-- add to wishlist -->
+        <button
+            class="absolute right-0 lg:bottom-[21.2%] md:bottom-[28%] sm:bottom-[29%] bottom-[30.5%] p-1 border border-neutral-300 bg-white flex cursor-pointer text-xl text-hover hover:text-fade transition-all">
+            <Icon name="mingcute:heart-line" size="20" class="-rotate-45" />
+        </button>
         <!-- add to cart -->
-        <button title="Add to Cart" @click.stop="console.log('g');"
+        <button title="Add to Cart"
             class="cursor-pointer absolute lg:bottom-[21%] md:bottom-[28%] sm:bottom-[29%] bottom-[30%] left-[45%] sm:text-xl text-lg text-fade p-1 rounded-t-md flex bg-background hover:text-neutral-50 hover:bg-fade transition duration-300">
             <Icon name="line-md:plus" />
         </button>
