@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const router = useRouter();
 
 const agree = ref();
 </script>
@@ -29,7 +30,7 @@ const agree = ref();
                     class="absolute sm:text-sm text-xs text-white md:left-[1.5%] sm:left-[1.6%] left-[1.25%] sm:top-[20%] top-[15%]" />
             </label>
         </div>
-        <Button class="uppercase w-full justify-center py-4">
+        <Button @click="router.push({ name: 'checkout' })" class="uppercase w-full justify-center py-4">
             Checkout
         </Button>
     </div>

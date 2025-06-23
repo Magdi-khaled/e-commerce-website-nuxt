@@ -6,7 +6,7 @@ definePageMeta({
     ],
 });
 const route = useRoute();
-
+const collectionStore = useCollectionStore()
 const storedProducts = localStorage.getItem('products');
 
 const query = ref(route.query);
@@ -28,6 +28,7 @@ watch(() => route.query, (newVal) => query.value = newVal);
 const handleResize = () => openFilter.value = false;
 onMounted(() => window.addEventListener('resize', handleResize));
 onUnmounted(() => window.removeEventListener('resize', handleResize));
+console.log(collectionStore);
 </script>
 
 <template>
@@ -54,7 +55,7 @@ onUnmounted(() => window.removeEventListener('resize', handleResize));
                     </span>
                 </div>
                 <!-- collection header -->
-                <div class="grid grid-cols-5 items-center lg:gap-8 gap-4">
+                <div class="grid grid-cols-5 items-center lg:gap-8 gap-4 2xl:px-2 px-0">
                     <CollectionHeader v-model:open-filter="openFilter" v-model:type-filter="typeFilter" />
                 </div>
                 <!-- collection(products) -->
@@ -62,14 +63,14 @@ onUnmounted(() => window.removeEventListener('resize', handleResize));
                     <CollectionFilter v-if="openFilter" class="sm:w-4/12 w-6/12 md:hidden block"
                         v-model:filtered-collection="allProducts" v-model:show="show"
                         v-model:type-filter="typeFilter" />
-                    <div v-if="allProducts.length > 0" class="my-6 pr-5 md:pr-8 grid sm:gap-5 gap-4"
-                        :class="{ 'md:w-full sm:w-8/12 w-6/12 sm:grid-cols-2 grid-cols-1': openFilter, 'sm:grid-cols-3 grid-cols-2 ': !openFilter }">
+                    <div v-if="allProducts.length > 0" class="my-6 pr-5 md:pr-8 grid 2xl:gap-8 xl:gap-5 gap-4"
+                        :class="{ 'md:w-full sm:w-8/12 w-6/12 2xl:grid-cols-4 sm:grid-cols-2 grid-cols-1': openFilter, '2xl:grid-cols-4 sm:grid-cols-3 grid-cols-2 ': !openFilter }">
                         <CollectionProduct v-for="(item, index) in paginatedProducts" :key="index" :index="index"
                             :item="item" />
                     </div>
                     <div v-else
                         class="my-24 flex flex-col sm:gap-16 gap-12 sm:justify-center justify-start items-center">
-                        <img src="../../assets/media/no-products.svg" alt="No Products Found" class="grayscale-[70]"
+                        <img src="@/assets/media/no-products.svg" alt="No Products Found" class="grayscale-[70]"
                             loading="lazy">
                         <p class="text-neutral-600 uppercase text-xs text-center px-2">
                             no products matches your filter...</p>

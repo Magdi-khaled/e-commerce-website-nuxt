@@ -39,12 +39,12 @@ const newCollection = () => {
                     <li v-for="(item, index) in items" :key="index" class="tracking-wider" @click="open = false"
                         :class="{ 'border-t': index }">
                         <nuxt-link v-if="index !== 2" :to="item.path"
-                            class="hover:text-neutral-50 hover:bg-fade transition duration-150 py-2 px-2 w-full h-full block ">
+                            class="hover:text-neutral-50 hover:bg-fade transition duration-150 2xl:py-3 py-2 px-2 w-full h-full block ">
                             {{ item.title }}
                         </nuxt-link>
 
                         <nuxt-link v-else :to="{ name: item.path, query: { new: true } }" @click="newCollection()"
-                            class="hover:text-neutral-50 hover:bg-fade transition duration-150 py-2 px-2 w-full h-full block ">
+                            class="hover:text-neutral-50 hover:bg-fade transition duration-150 2xl:py-3 py-2 px-2 w-full h-full block ">
                             {{ item.title }}
                         </nuxt-link>
                     </li>

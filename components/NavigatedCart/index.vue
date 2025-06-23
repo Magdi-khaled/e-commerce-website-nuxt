@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import type Product from '~/types/useProduct';
 import { xivCollection } from '../../utils/useUtils';
+
+const router = useRouter();
 const open = defineModel<boolean>('open');
+
 const items = xivCollection as Product[]
 </script>
 
@@ -19,12 +22,13 @@ const items = xivCollection as Product[]
             </div>
             <!-- cart items -->
             <div class="flex-1 overflow-y-auto px-4 md:px-8 py-4 space-y-4">
-                <NavigatedCartItem :item="item" v-for="(item, index) in items" :key="index"
+                <NavigatedCartItem :item="item" v-for="(item, index) in items" :key="index" v-model:open="open"
                     class="border-b border-b-background pb-4 last:border-b-0" />
             </div>
             <!-- checkout button -->
             <div>
-                <Button class="py-4 w-full flex justify-between items-center">
+                <Button @click="router.push({ name: 'checkout' }), open = false"
+                    class="py-4 w-full flex justify-between items-center">
                     checkout
                     <Icon name="mynaui:arrow-long-right" size="28" />
                 </Button>

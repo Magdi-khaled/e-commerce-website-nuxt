@@ -50,6 +50,10 @@ const collections = ['all', 't-shirt', 'shirt', 'trouser', 'short', 'suit',
         1298: {
             slidesPerView: 4.5,
             grid: { rows: 2, fill: 'row' }
+        },
+        1650: {
+            slidesPerView: 5.5,
+            grid: { rows: 2, fill: 'row' }
         }
     }" class="lg:col-span-3 col-span-5 w-[100%]">
         <SwiperSlide v-for="(item, index) in collections" :key="index">

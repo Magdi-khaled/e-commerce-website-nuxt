@@ -76,7 +76,7 @@ watch(currentCollection, (newCollection) => {
         <Loading v-if="show" />
         <!-- main preview -->
         <div class="mb-10 pl-5 md:pl-12 grid grid-cols-3 gap-6">
-            <div class="md:col-span-1 col-span-3 lg:h-[20rem] h-auto flex flex-col justify-between">
+            <div class="md:col-span-1 col-span-3 2xl:h-[23rem] xl:h-[20rem] h-auto flex flex-col justify-between">
                 <div>
                     <h1 class="text-fade uppercase font-bold lg:text-5xl text-4xl">
                         new <br> collection
@@ -171,7 +171,7 @@ watch(currentCollection, (newCollection) => {
             </div>
             <div class="pl-5 md:pl-12 grid sm:grid-cols-4 grid-cols-2 lg:gap-x-6 gap-x-2 overflow-hidden">
                 <img v-for="(item, index) in fashion" :key="index" :src="item" :alt="`Fashion Style (${index + 1})`"
-                    class="m-auto lg:w-[28rem] md:w-[18rem] w-11/12 even:w-full lg:h-[25rem] md:h-[18rem] h-[13rem]  border-[1px]
+                    class="m-auto lg:w-[28rem] md:w-[18rem] w-11/12 even:w-full 2xl:h-[32rem] xl:h-[25rem] md:h-[18rem] h-[13rem]  border-[1px]
                     border-background object-cover even:sm:mt-32 even:mt-16 odd:sm:mt-12 odd:mt-6 hover:scale-[100.5%] hover:shadow-2xl transition duration-300">
             </div>
         </div>

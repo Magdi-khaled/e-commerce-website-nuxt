@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type Product from '~/types/useProduct';
 
+const open = defineModel<boolean>('open');
 const props = defineProps<{ item: Product }>();
 
 const orderQuantity = ref(1);
@@ -8,7 +9,7 @@ const orderQuantity = ref(1);
 
 <template>
     <div class="flex sm:gap-4 gap-2">
-        <nuxt-link :to="`/collections/${item.id}`">
+        <nuxt-link :to="`/collections/${item.id}`" @click="open = false">
             <img :src="item.thumbnail" :alt="`Cart Item-${item.title}`" class="size-32 border border-background">
         </nuxt-link>
         <div class="py-px flex-1 flex flex-col justify-between capitalize text-sm">

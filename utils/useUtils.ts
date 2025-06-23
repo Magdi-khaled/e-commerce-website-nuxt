@@ -621,3 +621,28 @@ export const fashion = [
   "/collection/product1.webp",
   "/collection/fashion/pic-4.webp",
 ];
+
+export const allCountries: string[] = [
+  "Algeria",
+  "Bahrain",
+  "Comoros",
+  "Djibouti",
+  "Egypt",
+  "Iraq",
+  "Jordan",
+  "Kuwait",
+  "Lebanon",
+  "Libya",
+  "Mauritania",
+  "Morocco",
+  "Oman",
+  "Palestine",
+  "Qatar",
+  "Saudi Arabia",
+  "Somalia",
+  "Sudan",
+  "Syria",
+  "Tunisia",
+  "United Arab Emirates",
+  "Yemen",
+];

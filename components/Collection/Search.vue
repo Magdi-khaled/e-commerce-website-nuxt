@@ -31,14 +31,14 @@ const searchResult = computed(() => {
             </nuxt-link>
         </div>
         <div class="relative bg-background px-3 flex items-center gap-2 transition" :class="{
-            'bg-neutral-400 shadow-md': focused, 'sm:w-[360px] w-full': route.name === 'index',
+            'bg-neutral-400 shadow-md': focused, '2xl:w-[450px] xl:w-[360px] w-full': route.name === 'index',
             'sm:w-full w-[95%]': route.name === 'collections'
         }">
             <Icon v-show="!loading" name="mynaui:search" class="text-xl" />
             <Icon v-show="loading" name="eos-icons:bubble-loading" class="text-xl" />
             <!-- search input -->
             <input type="text" id="search" name="search" v-model="searchQuery" onchange="searchResult"
-                class="flex-1 py-4 sm:text-[14px] text-[13px] placeholder:text-end placeholder:tracking-widest focus:outline-none"
+                class="flex-1 py-4 2xl:text-[16px] xl:text-[14px] text-[13px] placeholder:text-end placeholder:tracking-widest focus:outline-none"
                 placeholder="Search" @focus="focused = true" @blur="focused = false">
             <!-- Search result -->
             <ul v-if="searchResult.length" class="absolute left-0 top-[3.25rem] sm:max-h-[20rem] max-h-[16rem] w-full z-50 border border-background shadow-xs 
@@ -47,7 +47,7 @@ const searchResult = computed(() => {
                     Search result "{{ searchResult.length }}" </p>
                 <!-- search list -->
                 <li v-for="item in searchResult" :key="item.id">
-                    <nuxt-link :to="{ name: 'collections-id', params: { id: item.id } }" class="block w-full h-full sm:text-sm text-xs p-3 border-b
+                    <nuxt-link :to="{ name: 'collections-id', params: { id: item.id } }" class="block w-full h-full sm:text-sm text-xs 2xl:py-4 p-3 border-b
                         border-b-neutral-300 hover:bg-neutral-400 hover:text-white hover:shadow-md 
                         hover:shadow-orange-100 hover:scale-[102%] transition last:hover:scale-x-[102%]">
                         {{ item?.title }}
