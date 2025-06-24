@@ -1,5 +1,4 @@
 <script setup lang="ts">
-const route = useRoute();
 const router = useRouter();
 const currentProcess = defineModel<number>('currentProcess');
 
@@ -16,7 +15,7 @@ const postalCode = ref<string>('');
 </script>
 
 <template>
-    <form v-if="currentProcess === 0 && !route.hash" class="mt-15 grid gap-4 xl:w-5/12 w-6/12">
+    <div>
         <div>
             <p class="uppercase font-medium">contact info</p>
             <div class="my-4 grid gap-4">
@@ -49,5 +48,5 @@ const postalCode = ref<string>('');
                 </Button>
             </div>
         </div>
-    </form>
+    </div>
 </template>

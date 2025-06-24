@@ -4,13 +4,16 @@ const route = useRoute();
 const router = useRouter();
 const show = ref(false);
 
-const formItems = ['information', 'shipping', 'payment'];
+const formItems = [
+    { title: 'information', path: { name: 'checkout' } },
+    { title: 'shipping', path: { name: 'checkout', hash: '#shipping' } },
+    { title: 'payment', path: { name: 'checkout', hash: '#payment' } }];
 const currentProcess = ref<number>(route.hash === '#shipping' ? 1 : route.hash === '#payment' ? 2 : 0);
 
 watch(currentProcess, () => {
     show.value = true;
     setTimeout(() => { show.value = false; }, 600);
-})
+});
 </script>
 
 <template>
@@ -22,18 +25,28 @@ watch(currentProcess, () => {
         <h1 class="md:text-3xl text-2xl uppercase font-extrabold">checkout</h1>
 
         <div class="flex items-center gap-6 my-8">
-            <p v-for="(item, index) in formItems" :key="index" class="uppercase font-medium"
-                :class="{ 'text-hover': currentProcess !== index }">{{ item }}</p>
+            <nuxt-link :to="item.path" v-for="(item, index) in formItems" :key="index" @click="currentProcess = index"
+                class="uppercase font-medium" :class="{ 'text-hover': currentProcess !== index }">
+                {{ item.title }}</nuxt-link>
         </div>
 
-        <!-- checkout form step 1 (information) -->
-        <CheckoutInformationForm v-model:current-process="currentProcess" />
+        <div class="mt-12 flex justify-between">
+            <form class="grid gap-4 xl:w-5/12 w-6/12">
+                <!-- checkout form step 1 (information) -->
+                <CheckoutInformationForm v-if="currentProcess === 0 && !route.hash"
+                    v-model:current-process="currentProcess" />
 
-        <!-- checkout form step 2 (shipping) -->
-        <CheckoutShippingForm v-model:current-process="currentProcess" />
+                <!-- checkout form step 2 (shipping) -->
+                <CheckoutShippingForm v-if="currentProcess === 1 && route.hash === '#shipping'"
+                    v-model:current-process="currentProcess" />
 
-        <!-- checkout form step 3 (payment) -->
-        <CheckoutPaymentForm v-model:current-process="currentProcess" />
+                <!-- checkout form step 3 (payment) -->
+                <CheckoutPaymentForm v-if="currentProcess === 2 && route.hash === '#payment'"
+                    v-model:current-process="currentProcess" />
+            </form>
 
+            <!-- checkout orders -->
+            <Checkout />
+        </div>
     </main>
 </template>
