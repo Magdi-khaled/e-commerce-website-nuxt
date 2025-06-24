@@ -63,8 +63,10 @@ console.log(collectionStore);
                     <CollectionFilter v-if="openFilter" class="sm:w-4/12 w-6/12 md:hidden block"
                         v-model:filtered-collection="allProducts" v-model:show="show"
                         v-model:type-filter="typeFilter" />
-                    <div v-if="allProducts.length > 0" class="my-6 pr-5 md:pr-8 grid 2xl:gap-8 xl:gap-5 gap-4"
-                        :class="{ 'md:w-full sm:w-8/12 w-6/12 2xl:grid-cols-4 sm:grid-cols-2 grid-cols-1': openFilter, '2xl:grid-cols-4 sm:grid-cols-3 grid-cols-2 ': !openFilter }">
+                    <div v-if="allProducts.length > 0" class="my-6 pr-5 md:pr-8 grid 2xl:gap-8 xl:gap-5 gap-4" :class="{
+                        'md:w-full sm:w-8/12 w-6/12 sm:grid-cols-2 grid-cols-1': openFilter,
+                        'sm:grid-cols-3 grid-cols-2 ': !openFilter
+                    }">
                         <CollectionProduct v-for="(item, index) in paginatedProducts" :key="index" :index="index"
                             :item="item" />
                     </div>
