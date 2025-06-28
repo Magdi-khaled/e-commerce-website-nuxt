@@ -11,6 +11,7 @@ export default interface Product {
   price: number;
   available: boolean;
   rate: number;
+  orderQuantity: number;
   category: string;
   sizes: string[];
   colors: Color[];

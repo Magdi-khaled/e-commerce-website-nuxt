@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import type Product from '~/types/useProduct';
-import { xivCollection } from '../../utils/useUtils';
-
-const router = useRouter();
 const open = defineModel<boolean>('open');
+const router = useRouter();
+const cartStore = useCartStore();
 
-const items = xivCollection as Product[]
+const items = computed(() => cartStore.cartItems);
+onMounted(() => cartStore.fetchCart());
 </script>
 
 <template>
@@ -21,9 +20,13 @@ const items = xivCollection as Product[]
                 </button>
             </div>
             <!-- cart items -->
-            <div class="flex-1 overflow-y-auto px-4 md:px-8 py-4 space-y-4">
+            <div v-if="items.length" class="flex-1 overflow-y-auto px-4 md:px-8 py-4 space-y-4">
                 <NavigatedCartItem :item="item" v-for="(item, index) in items" :key="index" v-model:open="open"
                     class="border-b border-b-background pb-4 last:border-b-0" />
+            </div>
+            <div v-else class="w-full h-[90dvh] flex flex-col items-center justify-center gap-4">
+                <img src="../../assets/media/no-products.svg" alt="Empty Cart" class="grayscale w-60">
+                <p class="text-sm text-center text-fade font-light px-6">There are no items in your shopping cart.</p>
             </div>
             <!-- checkout button -->
             <div>

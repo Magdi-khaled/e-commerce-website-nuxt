@@ -12,7 +12,7 @@ export const useCollectionStore = defineStore("collection", () => {
     try {
       // Replace with your API call
       // const data = await $fetch<[]>("/api/collections");
-      collections.value = xivCollection;
+      setCollections(xivCollection);
     } catch (err: any) {
       error.value = err.message || "Failed to fetch collections";
     } finally {
@@ -21,7 +21,7 @@ export const useCollectionStore = defineStore("collection", () => {
   };
 
   const setCollections = (collections: Array<any>) =>
-    (collections = collections);
+    (collections.value = collections);
   const clearCollections = () => (collections.value = []);
 
   return { collections, fetchCollections, setCollections, clearCollections };

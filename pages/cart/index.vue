@@ -1,9 +1,13 @@
 <script setup lang="ts">
+const cartStore = useCartStore();
 const route = useRoute();
-const selectedSection = ref(route.hash ? 1 : 0);
+const router = useRouter();
 
-const items = xivCollection;
+const selectedSection = ref(route.hash ? 1 : 0);
 const show = ref(false);
+
+const items = computed(() => cartStore.cartItems);
+onMounted(() => cartStore.fetchCart());
 
 watch(selectedSection, () => {
     show.value = true;
@@ -22,7 +26,21 @@ watch(() => route.hash, (newVal) => newVal ? selectedSection.value = 1 : selecte
             <div v-if="selectedSection === 0 && !show" class="sm:flex block justify-between gap-4">
                 <div
                     class="2xl:w-8/12 xl:w-7/12 lg:w-8/12 md:w-5/12 sm:w-6/12 w-full grid 2xl:grid-cols-3 xl:grid-cols-2 grid-cols-1 2xl:gap-x-6 xl:gap-x-28 gap-x-10 gap-y-2 py-6 border-y border-y-background">
-                    <CartItem v-for="(item, index) in items" :key="index" :item="item" />
+                    <template v-if="items.length">
+                        <CartItem v-for="(item, index) in items" :key="index" :item="item" />
+                    </template>
+                    <div v-else
+                        class="2xl:col-span-3 xl:col-span-2 col-span-1 2xl:h-[25rem] h-[20rem] flex flex-col items-center justify-center gap-6">
+                        <img src="../../assets/media/no-products.svg" alt="Empty Cart" class="grayscale 2xl:w-72 w-60">
+                        <p class="2xl:text-[17px] text-sm text-center text-fade font-light">There are no items in
+                            your shopping
+                            cart.</p>
+                        <Button @click="router.push({ name: 'collections' })"
+                            class="xl:w-5/12 lg:w-7/12 w-full py-3 whitespace-nowrap">
+                            go to shopping
+                            <Icon name="streamline-cyber:shopping-cart-user-2" size="25" class="rotate-y-180" />
+                        </Button>
+                    </div>
                 </div>
                 <!-- <div
                     class=" w-full grid lg:grid-cols-3 grid-cols-2 xl:gap-x-28 gap-x-10 gap-y-2 py-6 border-y border-y-background">

@@ -13,7 +13,7 @@ const query = ref(route.query);
 const show = ref(false);
 const currentPage = ref(Number(route.query.page) || 1);
 const itemsPerPage = 12;
-const allProducts = ref<[]>(storedProducts && Object.keys(route.query).length > 0 ? JSON.parse(storedProducts) : xivCollection as [] || []);
+const allProducts = ref<[]>(storedProducts && Object.keys(route.query).length > 0 ? JSON.parse(storedProducts) : xivCollection || []);
 
 const openFilter = ref(false);
 const typeFilter = ref<string>(route.query.type as string || 'all');
@@ -26,9 +26,11 @@ const paginatedProducts = computed(() => {
 watch(() => route.query, (newVal) => query.value = newVal);
 
 const handleResize = () => openFilter.value = false;
-onMounted(() => window.addEventListener('resize', handleResize));
+onMounted(async () => {
+    await collectionStore.fetchCollections();
+    window.addEventListener('resize', handleResize);
+});
 onUnmounted(() => window.removeEventListener('resize', handleResize));
-console.log(collectionStore);
 </script>
 
 <template>

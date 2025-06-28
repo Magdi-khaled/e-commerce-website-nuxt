@@ -8,7 +8,7 @@ export default interface Order {
   type: string;
   thumbnail: string;
   price: number;
-  quantity: number;
+  orderQuantity: number;
   category: string;
   size: string;
   color: Color;

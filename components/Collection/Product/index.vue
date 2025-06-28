@@ -1,9 +1,26 @@
 <script setup lang="ts">
+import type Order from '~/types/useOrder';
+import type Product from '~/types/useProduct';
+
 const route = useRoute();
 const props = defineProps<{
-    item: any,
+    item: Product,
     index: number
 }>();
+
+
+const order: Order = reactive({
+    id: props.item.id,
+    title: props.item.title,
+    type: props.item.type,
+    thumbnail: props.item.thumbnail,
+    price: props.item.price,
+    orderQuantity: props.item.orderQuantity,
+    category: props.item.category,
+    size: props.item.sizes[1],
+    color: props.item.colors[1],
+});
+const cartStore = useCartStore();
 </script>
 
 <template>
@@ -36,7 +53,7 @@ const props = defineProps<{
             <Icon name="mingcute:heart-line" class="-rotate-45" />
         </button>
         <!-- add to cart -->
-        <button title="Add to Cart"
+        <button @click="cartStore.addToCart(order)" title="Add to Cart"
             class="cursor-pointer absolute left-[45%] 2xl:text-[1.6rem] text-lg text-fade p-1 rounded-t-md flex bg-background hover:text-neutral-50 hover:bg-fade transition duration-300"
             :class="{
                 '2xl:bottom-[14.5%] lg:bottom-[16%] md:bottom-[25%] sm:bottom-[29%] bottom-[32%]': route.name === 'index',

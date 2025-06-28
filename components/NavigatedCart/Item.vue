@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import type Product from '~/types/useProduct';
+import type Order from '~/types/useOrder';
 
 const open = defineModel<boolean>('open');
-const props = defineProps<{ item: Product }>();
-
-const orderQuantity = ref(1);
+const props = defineProps<{ item: Order }>();
 </script>
 
 <template>
@@ -16,17 +14,17 @@ const orderQuantity = ref(1);
             <div>
                 <div class="flex justify-between">
                     <p>{{ item.title }}</p>
-                    <button title="Remove this item"
+                    <button @click="useCartStore().removeFromCart(item)" title="Remove Product"
                         class="cursor-pointer sm:text-lg text-sm text-red-700 hover:text-red-500 transition-all">
                         <Icon name="pajamas:remove" />
                     </button>
                 </div>
-                <p class="text-hover">Color: {{ item.colors[0].name }}</p>
-                <p class="text-hover">Size: {{ item.sizes[1] }}</p>
+                <p class="text-hover">Color: {{ item.color.name }}</p>
+                <p class="text-hover">Size: {{ item.size }}</p>
             </div>
             <div class="w-full flex items-end justify-between">
                 <p>$ {{ item.price }}</p>
-                <CollectionProductQuantity :selected-quantity="orderQuantity" :is-cart="true" />
+                <CollectionProductQuantity :selected-quantity="item.orderQuantity" :item="item" :is-cart="true" />
             </div>
         </div>
     </div>

@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import type Product from '~/types/useProduct';
-
-const route = useRoute();
+import type Order from '~/types/useOrder';
 
 const props = defineProps<{
-    item: Product,
+    item: Order,
     index?: number
 }>();
-const selectedQuantity = ref(1);
+
+const cartStore = useCartStore();
 </script>
 
 <template>
@@ -30,23 +29,24 @@ const selectedQuantity = ref(1);
                     <p>${{ item.price }}</p>
                 </div>
             </div>
-            <button title="Remove from Cart"
+            <button @click="cartStore.removeFromCart(item)" title="Remove from Cart"
                 class="absolute top-1 -right-10 cursor-pointer text-2xl text-hover hover:text-fade">
                 <Icon name="heroicons:x-mark" />
             </button>
         </div>
         <!--  order data -->
         <div class="grid gap-4 items-start mb-16">
-            <p class="font-semibold pl-1">{{ item.sizes[0] }}</p>
-            <div class="size-8 border border-neutral-400" :style="{ backgroundColor: `#${item.colors[0].color}` }" />
+            <p class="font-semibold pl-1">{{ item.size }}</p>
+            <div class="size-8 border border-neutral-400 cursor-pointer" :title="`Order color: ${item.color.name}`"
+                :style="{ backgroundColor: `#${item.color.color}` }" />
             <div class="grid border-[2px] border-hover">
-                <button class="cursor-pointer py-[6px] flex items-cente
-                    r justify-center w-full h-full hover:bg-hover hover:text-neutral-50 transition-all">
+                <button @click="cartStore.addToCart(item)"
+                    class="cursor-pointer py-[6px] flex items-center justify-center w-full h-full hover:bg-hover hover:text-neutral-50 transition-all">
                     <Icon name="line-md:plus" />
                 </button>
                 <p class="border-y-[2px] border-y-hover py-px text-center">
-                    {{ selectedQuantity }}</p>
-                <button
+                    {{ item.orderQuantity }}</p>
+                <button @click="cartStore.removeFromCart(item)"
                     class="cursor-pointer py-[6px] flex items-center justify-center w-full h-full hover:bg-hover hover:text-neutral-50 transition-all">
                     <Icon name="line-md:minus" />
                 </button>

@@ -152,6 +152,7 @@ export const xivCollection: Product[] = [
     price: 199,
     available: true,
     rate: 0,
+    orderQuantity: 1,
     category: "men",
     sizes: ["S", "M", "L", "XL", "2X"],
     colors: [
@@ -178,6 +179,7 @@ export const xivCollection: Product[] = [
     price: 199,
     available: true,
     rate: 0,
+    orderQuantity: 1,
     category: "men",
     sizes: ["S", "M", "L", "XL"],
     colors: [
@@ -204,6 +206,7 @@ export const xivCollection: Product[] = [
     price: 1949,
     available: true,
     rate: 0,
+    orderQuantity: 1,
     category: "men",
     sizes: ["S", "M", "L", "XL"],
     colors: [
@@ -229,6 +232,7 @@ export const xivCollection: Product[] = [
     price: 199,
     available: false,
     rate: 0,
+    orderQuantity: 1,
     category: "men",
     sizes: ["S", "M", "L", "XL", "2X"],
     colors: [
@@ -255,6 +259,7 @@ export const xivCollection: Product[] = [
     price: 199,
     available: false,
     rate: 0,
+    orderQuantity: 1,
     category: "men",
     sizes: ["M", "L", "XL", "2X"],
     colors: [
@@ -280,6 +285,7 @@ export const xivCollection: Product[] = [
     price: 199,
     available: true,
     rate: 0,
+    orderQuantity: 1,
     category: "men",
     sizes: ["XS", "M", "L", "XL", "2X"],
     colors: [
@@ -306,6 +312,7 @@ export const xivCollection: Product[] = [
     price: 199,
     available: false,
     rate: 0,
+    orderQuantity: 1,
     category: "men",
     sizes: ["M", "L", "XL"],
     colors: [
@@ -331,6 +338,7 @@ export const xivCollection: Product[] = [
     price: 199,
     available: true,
     rate: 0,
+    orderQuantity: 1,
     category: "men",
     sizes: ["M", "L", "XL"],
     colors: [
@@ -357,6 +365,7 @@ export const xivCollection: Product[] = [
     price: 199,
     available: true,
     rate: 0,
+    orderQuantity: 1,
     category: "men",
     sizes: ["S", "M", "L", "XL", "2X"],
     colors: [
@@ -384,6 +393,7 @@ export const xivCollection: Product[] = [
     price: 199,
     available: true,
     rate: 0,
+    orderQuantity: 1,
     category: "men",
     sizes: ["S", "M", "L", "XL", "2X"],
     colors: [
@@ -411,6 +421,7 @@ export const xivCollection: Product[] = [
     price: 199,
     available: false,
     rate: 0,
+    orderQuantity: 1,
     category: "men",
     sizes: ["XS", "S", "M", "L"],
     colors: [
@@ -437,6 +448,7 @@ export const xivCollection: Product[] = [
     price: 199,
     available: false,
     rate: 0,
+    orderQuantity: 1,
     category: "men",
     sizes: ["S", "M", "L"],
     colors: [
@@ -464,6 +476,7 @@ export const xivCollection: Product[] = [
     price: 199,
     available: true,
     rate: 0,
+    orderQuantity: 1,
     category: "men",
     sizes: ["S", "M", "L"],
     colors: [
@@ -490,6 +503,7 @@ export const xivCollection: Product[] = [
     price: 199,
     available: false,
     rate: 0,
+    orderQuantity: 1,
     category: "women",
     sizes: ["S", "M", "L"],
     colors: [
@@ -518,6 +532,7 @@ export const xivCollection: Product[] = [
     price: 199,
     available: false,
     rate: 0,
+    orderQuantity: 1,
     category: "women",
     sizes: ["S", "M", "L", "XL"],
     colors: [
@@ -544,6 +559,7 @@ export const xivCollection: Product[] = [
     price: 199,
     available: true,
     rate: 0,
+    orderQuantity: 1,
     category: "women",
     sizes: ["XS", "S", "M", "L", "XL"],
     colors: [
@@ -571,6 +587,7 @@ export const xivCollection: Product[] = [
     price: 199,
     available: false,
     rate: 0,
+    orderQuantity: 1,
     category: "women",
     sizes: ["M", "L", "XL"],
     colors: [
@@ -597,6 +614,7 @@ export const xivCollection: Product[] = [
     price: 199,
     available: true,
     rate: 0,
+    orderQuantity: 1,
     category: "women",
     sizes: ["M", "L", "XL", "2X"],
     colors: [
