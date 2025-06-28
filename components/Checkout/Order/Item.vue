@@ -22,7 +22,7 @@ const orderQuantity = ref(1);
                 <p class="text-fade font-medium">{{ order.size }}/{{ order.color.name }}</p>
             </div>
             <div class="w-full flex justify-between items-end">
-                <p class="text-fade font-semibold">({{ order.quantity }})</p>
+                <p class="text-fade font-semibold">({{ order.orderQuantity }})</p>
                 <p>$ {{ order.price }}</p>
             </div>
         </div>

@@ -13,7 +13,7 @@ export const useCartStore = defineStore("cart", () => {
       // Replace with your API call
       // const data = await $fetch<[]>("/api/cart");
       const storedItems = JSON.parse(localStorage.getItem("cartItems"));
-      cartItems.value = storedItems ? storedItems : [];
+      setCartItems(storedItems ? storedItems : []);
     } catch (err: any) {
       error.value = err.message || "Failed to fetch cart items";
     } finally {
@@ -84,6 +84,7 @@ export const useCartStore = defineStore("cart", () => {
       loading.value = false;
     }
   };
+  const setCartItems = (items: Order[]) => (cartItems.value = items);
 
   return {
     cartItems,
@@ -91,5 +92,6 @@ export const useCartStore = defineStore("cart", () => {
     addToCart,
     removeFromCart,
     removeItemFromCart,
+    setCartItems,
   };
 });
