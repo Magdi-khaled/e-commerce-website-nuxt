@@ -30,8 +30,8 @@ watch(currentProcess, () => {
                 {{ item.title }}</nuxt-link>
         </div>
 
-        <div class="mt-12 flex justify-between">
-            <form class="grid gap-4 xl:w-5/12 w-6/12">
+        <div class="mt-12 flex sm:flex-nowrap flex-wrap gap-6 justify-between">
+            <form class="grid gap-4 xl:w-5/12 md:w-6/12 w-full">
                 <!-- checkout form step 1 (information) -->
                 <CheckoutInformationForm v-if="currentProcess === 0 && !route.hash"
                     v-model:current-process="currentProcess" />
@@ -46,7 +46,7 @@ watch(currentProcess, () => {
             </form>
 
             <!-- checkout orders -->
-            <Checkout />
+            <CheckoutOrder class="xl:w-4/12 md:w-5/12 w-full md:my-0 my-12" :current-process="currentProcess" />
         </div>
     </main>
 </template>
