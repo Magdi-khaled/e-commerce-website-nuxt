@@ -50,9 +50,7 @@ export const useCartStore = defineStore("cart", () => {
     try {
       // Replace with your API call
       // const data = await $fetch<[]>("/api/cart/remove/:id");
-      const existIndx = cartItems.value.findIndex(
-        (v) => v.id === item.id
-      ) as number;
+      const existIndx = cartItems.value.findIndex((v) => v.id === item.id);
 
       if (item.orderQuantity === 1) {
         cartItems.value.splice(existIndx, 1);
@@ -70,5 +68,28 @@ export const useCartStore = defineStore("cart", () => {
     }
   };
 
-  return { cartItems, fetchCart, addToCart, removeFromCart };
+  const removeItemFromCart = async (item: Order) => {
+    loading.value = true;
+    error.value = null;
+    try {
+      // Replace with your API call
+      // const data = await $fetch<[]>("/api/cart/remove/:id");
+      const existIndx = cartItems.value.findIndex((v) => v.id === item.id);
+
+      cartItems.value.splice(existIndx, 1);
+      localStorage.setItem("cartItems", JSON.stringify(cartItems.value));
+    } catch (err: any) {
+      error.value = err.message || "Failed to add item to cart";
+    } finally {
+      loading.value = false;
+    }
+  };
+
+  return {
+    cartItems,
+    fetchCart,
+    addToCart,
+    removeFromCart,
+    removeItemFromCart,
+  };
 });

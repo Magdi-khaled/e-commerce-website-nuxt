@@ -29,7 +29,7 @@ const cartStore = useCartStore();
                     <p>${{ item.price }}</p>
                 </div>
             </div>
-            <button @click="cartStore.removeFromCart(item)" title="Remove from Cart"
+            <button @click="cartStore.removeItemFromCart(item)" title="Remove from Cart"
                 class="absolute top-1 -right-10 cursor-pointer text-2xl text-hover hover:text-fade">
                 <Icon name="heroicons:x-mark" />
             </button>

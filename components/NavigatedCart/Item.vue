@@ -14,7 +14,7 @@ const props = defineProps<{ item: Order }>();
             <div>
                 <div class="flex justify-between">
                     <p>{{ item.title }}</p>
-                    <button @click="useCartStore().removeFromCart(item)" title="Remove Product"
+                    <button @click="useCartStore().removeItemFromCart(item)" title="Remove Product"
                         class="cursor-pointer sm:text-lg text-sm text-red-700 hover:text-red-500 transition-all">
                         <Icon name="pajamas:remove" />
                     </button>
