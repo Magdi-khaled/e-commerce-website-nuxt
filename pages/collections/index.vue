@@ -6,14 +6,12 @@ definePageMeta({
     ],
 });
 const route = useRoute();
-const collectionStore = useCollectionStore()
-const storedProducts = localStorage.getItem('products');
+const collectionStore = useCollectionStore();
 
 const query = ref(route.query);
 const show = ref(false);
 const currentPage = ref(Number(route.query.page) || 1);
 const itemsPerPage = 12;
-const allProducts = ref<[]>(storedProducts && Object.keys(route.query).length > 0 ? JSON.parse(storedProducts) : xivCollection || []);
 
 const openFilter = ref(false);
 const typeFilter = ref<string>(route.query.type as string || 'all');
@@ -21,7 +19,7 @@ const typeFilter = ref<string>(route.query.type as string || 'all');
 const paginatedProducts = computed(() => {
     const start = (currentPage.value - 1) * itemsPerPage;
     const end = start + itemsPerPage;
-    return allProducts.value.slice(start, end);
+    return collectionStore.collections.slice(start, end);
 });
 watch(() => route.query, (newVal) => query.value = newVal);
 
@@ -38,7 +36,7 @@ onUnmounted(() => window.removeEventListener('resize', handleResize));
         <Loading v-if="show" />
         <div class="pl-5 md:pl-12 md:col-span-1 col-span-4 md:block hidden">
             <p class="font-bold">Filters</p>
-            <CollectionFilter v-model:filtered-collection="allProducts" v-model:show="show"
+            <CollectionFilter v-model:filtered-collection="collectionStore.collections" v-model:show="show"
                 v-model:type-filter="typeFilter" v-model:current-page="currentPage" />
         </div>
         <div class="ml-5 md:ml-6 md:col-span-3 col-span-4 justify-between">
@@ -63,12 +61,13 @@ onUnmounted(() => window.removeEventListener('resize', handleResize));
                 <!-- collection(products) -->
                 <div class="flex gap-3 justify-center">
                     <CollectionFilter v-if="openFilter" class="sm:w-4/12 w-6/12 md:hidden block"
-                        v-model:filtered-collection="allProducts" v-model:show="show"
+                        v-model:filtered-collection="collectionStore.collections" v-model:show="show"
                         v-model:type-filter="typeFilter" />
-                    <div v-if="allProducts.length > 0" class="my-6 pr-5 md:pr-8 grid 2xl:gap-8 xl:gap-5 gap-4" :class="{
-                        'md:w-full sm:w-8/12 w-6/12 sm:grid-cols-2 grid-cols-1': openFilter,
-                        'sm:grid-cols-3 grid-cols-2 ': !openFilter
-                    }">
+                    <div v-if="collectionStore.collections.length > 0"
+                        class="my-6 pr-5 md:pr-8 grid 2xl:gap-8 xl:gap-5 gap-4" :class="{
+                            'md:w-full sm:w-8/12 w-6/12 sm:grid-cols-2 grid-cols-1': openFilter,
+                            'sm:grid-cols-3 grid-cols-2 ': !openFilter
+                        }">
                         <CollectionProduct v-for="(item, index) in paginatedProducts" :key="index" :index="index"
                             :item="item" />
                     </div>
@@ -80,9 +79,10 @@ onUnmounted(() => window.removeEventListener('resize', handleResize));
                             no products matches your filter...</p>
                     </div>
                 </div>
-                <div v-if="allProducts.length > 0" class="w-full flex justify-center">
-                    <CollectionPagination v-model:current-page="currentPage" :total-items="allProducts.length"
-                        :items-per-page="itemsPerPage" v-model:show="show" />
+                <div v-if="collectionStore.collections.length > 0" class="w-full flex justify-center">
+                    <CollectionPagination v-model:current-page="currentPage"
+                        :total-items="collectionStore.collections.length" :items-per-page="itemsPerPage"
+                        v-model:show="show" />
                 </div>
             </div>
         </div>

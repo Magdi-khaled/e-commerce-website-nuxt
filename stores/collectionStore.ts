@@ -12,7 +12,13 @@ export const useCollectionStore = defineStore("collection", () => {
     try {
       // Replace with your API call
       // const data = await $fetch<[]>("/api/collections");
-      setCollections(xivCollection);
+
+      const storedProducts = localStorage.getItem("products");
+      setCollections(
+        storedProducts && Object.keys(useRoute().query).length > 0
+          ? JSON.parse(storedProducts)
+          : xivCollection || []
+      );
     } catch (err: any) {
       error.value = err.message || "Failed to fetch collections";
     } finally {
@@ -20,9 +26,7 @@ export const useCollectionStore = defineStore("collection", () => {
     }
   };
 
-  const setCollections = (collections: Array<any>) =>
-    (collections.value = collections);
-  const clearCollections = () => (collections.value = []);
+  const setCollections = (items: Product[]) => (collections.value = items);
 
-  return { collections, fetchCollections, setCollections, clearCollections };
+  return { collections, fetchCollections, setCollections };
 });

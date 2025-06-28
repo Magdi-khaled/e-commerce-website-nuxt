@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import type Product from '~/types/useProduct';
+
 const route = useRoute();
 const router = useRouter();
 
 const show = defineModel<boolean>('show');
 const currentPage = defineModel<number>('currentPage');
-const filteredCollection = defineModel<[]>('filtered-collection');
+const filteredCollection = defineModel<Product[]>('filtered-collection');
 const typeFilter = defineModel<string>('typeFilter', { default: 'all' });
 const newFilter = ref<boolean>(Boolean(route.query.new));
 
@@ -57,7 +59,7 @@ onBeforeMount(() => {
 watch([sizeFilter, availFilter, categoryFilter, colorFilter, priceFilter, typeFilter, rateFilter, currentPage, newFilter],
     async ([size, availability, category, color, price, type, rate, page, isNew], old) => {
         if (route.query.page) currentPage.value = 1;
-        if (route.query.new === true) clear();
+        if (Boolean(route.query.new) === true) clear();
 
         if (type !== old[5]) {
             sizeFilter.value = '';
